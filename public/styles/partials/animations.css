@@ -1,0 +1,25 @@
+
+
+@keyframes up {
+    0% {
+        opacity: 0;
+        transform: translateX(-30rem);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes move {
+    0% {
+        opacity: 0;
+        transform: translateX(-5rem);
+    }
+
+    100%{
+        opacity: 1;
+
+    }
+}
+
+

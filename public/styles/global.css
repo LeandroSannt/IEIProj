@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+    height: 100vh;
+    color: black;
+    background-color: #ebf2f5;
+    
+}
+:root{
+    font-size: 62.5%;
+    --color-bg-fundo:#5c83be;
+    --color-bg-card:#71a8da;
+    --color-font-logo:#5179b5
+}
+
+var
+
+body, input,button,textarea{
+    font-size: 1.8rem;
+    font-family: 'Roboto', sans-serif;
+
+    line-height: 1;
+    font-weight: 400;
+
+}

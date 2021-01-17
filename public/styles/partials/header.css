@@ -1,0 +1,102 @@
+
+
+.container{
+    min-width: 70%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+header{
+    display: grid;
+    grid-template-rows: 30vh 70vh;
+    min-width: 200px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 1px 10px 5px black;
+    animation-name: up;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+header .info-personal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/public/assets/imagem-fundo5.jpeg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 180% 100%;
+    width: 100%;
+
+}
+
+header .info-personal img {
+    width: 90%;
+    height: 80px;
+    
+    
+}
+
+header nav{
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    background-color: white;
+
+}
+
+header nav ul{
+    display: grid;
+    grid-template-rows: repeat(6,1fr);
+
+}
+
+header nav ul a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+    text-decoration: none;
+    transition: 500ms;
+    color: black;
+    font-size: 1.6rem;
+
+}
+
+header nav ul a:hover{
+    background-color: #9cc5e7;
+    border-left: solid 7px #194c9e;
+    color:  #194c9e;  
+    font-weight: bold; 
+}   
+
+
+
+header nav ul a li  {
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+    
+}
+
+header nav ul a li span{
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+     
+}
+
+header nav ul a li span img{
+    width: 25px;
+    height: 25px;
+
+}
+
+header nav ul a li span p{
+    margin-right: 10px ;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+

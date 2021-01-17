@@ -1,0 +1,21 @@
+{
+  "name": "iei-proj",
+  "version": "1.0.0",
+  "description": "Projeto feito para Instituto de especialidades integradas",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.7",
+    "nunjucks": "^3.2.2",
+    "pg": "^8.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

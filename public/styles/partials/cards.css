@@ -1,0 +1,117 @@
+
+
+.container .cards{
+    margin-top: 30px;
+    height: 30vh;
+    display: grid ;
+    grid-template-columns: repeat(3,1fr);
+    opacity: 0;
+    animation-name: move;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-delay: 0.2s;
+
+   
+}
+
+.container .cards .container-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  
+}
+
+
+.container .cards .container-card .card{
+    display: grid;
+    grid-template-rows:1fr 50px;
+    width: 340px;
+    height: 200px;
+    background-color: #ebf2f5;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px -10px black;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  
+
+}
+
+.container .cards .container-card .card:hover,
+.container .cards .container-card .card:focus,
+.container .cards .container-card .card:active{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+
+}
+
+
+
+
+
+.card .card-info{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+  
+}
+
+.card-info .consultas-dia {
+    display: flex;
+    align-items: center;
+    justify-items:flex-end;
+    width: 100%;
+    font-size: 2.5rem;
+    padding-right: 20px;
+}
+
+.card-info .consultas-dia p{
+    letter-spacing: 1.5px;
+}
+
+
+.card-info .consultas-dia span{
+    font-size: 5rem;
+    font-weight: bold;
+
+}
+
+.card .card-info .logo-card img {
+    margin-left: 20px;
+    width: 100%;
+    height: 100px;
+}
+
+.card-info .logo-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .consultas-dia{
+    display: grid;
+    grid-template-rows: 1fr 100px;
+    text-align: right;
+
+}
+
+
+.card .info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    background-color: #d8ddec; 
+    border-radius: 0px 0px 10px 10px;
+}
+
+
+
+
+
