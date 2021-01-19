@@ -27,7 +27,7 @@
 .container .cards .container-card .card{
     display: grid;
     grid-template-rows:1fr 50px;
-    width: 340px;
+    width: 370px;
     height: 200px;
     background-color: #ebf2f5;
     border-radius: 10px;
@@ -50,9 +50,6 @@
     transform: scale(1.1);
 
 }
-
-
-
 
 
 .card .card-info{
@@ -95,7 +92,6 @@
 
 .card .consultas-dia{
     display: grid;
-    grid-template-rows: 1fr 100px;
     text-align: right;
 
 }
@@ -110,6 +106,59 @@
     background-color: #d8ddec; 
     border-radius: 0px 0px 10px 10px;
 }
+
+/*Card financeiro*/
+
+.consultas-dia .mensal{
+    width: 80%;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.consultas-dia .mensal .green{
+    color: green;
+}
+
+.consultas-dia .mensal span{
+    font-size: 1.9rem;
+    color: red;
+}
+
+.consultas-dia form input{
+    background-color: #f2f4f8;
+    width: 95%;
+    padding: 3px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px -10px black;
+}
+
+.consultas-dia form input::placeholder{
+    font-size: 1.2rem;
+    color:#b0b3bb
+    
+}
+
+.consultas-dia form button{
+    width: 95%;
+    outline: none;
+   background-color: var(--color-bg-card);
+   border: none;
+   border-radius: 3px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   transition: 200ms;
+   margin-top: 5px;
+}
+
+.consultas-dia form button:hover{
+    background-color: var(--color-bg-fundo);
+
+}
+
 
 
 

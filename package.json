@@ -4,6 +4,7 @@
   "description": "Projeto feito para Instituto de especialidades integradas",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "multer": "^1.4.2",

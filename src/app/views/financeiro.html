@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="/public/styles/partials/cards.css">
     <link rel="stylesheet" href="/public/styles/partials/table.css">
     <link rel="stylesheet" href="/public/styles/partials/animations.css">
-    <link rel="shortcut icon" href="/public/assets/icons8-consultation-48.png" />
+    <link rel="shortcut icon" href="/public/assets/caderno.svg" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>Consultas</title>
+        <title>Relatorio financeiro</title>
 </head>
 <body>
     <div class="container">
@@ -22,7 +22,7 @@
             </div>
             <nav>
                 <ul>
-                    <a href="/src/app/views/consultas/index.html">
+                    <a href="consultas/index.html">
                         <li>
                             <span>
                                 <img src="/public/assets/001-caderno.svg" alt="">
@@ -56,7 +56,7 @@
                             </span>   
                         </li>
                     </a>
-                    <a href="/src/app/views/financeiro.html">
+                    <a href="financeiro.html">
                         <li>
                             <span>
                                 <img src="/public/assets/009-relatorio.svg" alt="">
@@ -85,15 +85,23 @@
             <div class="card active">
                 <div class="card-info">
                     <div class="logo-card">
-                        <img src="/public/assets/006-calendario.svg" alt="">
+                        <img src="/public/assets/economizando-dinheiro.svg" alt="">
                     </div>
                     <div class="consultas-dia">
-                        <p>Consultas do dia</p>
-                        <span>5</span>
+                        <p>Valor mensal</p>
+                        <div class="mensal">
+                            <p>Instituição:</p>
+                            <span class ="green">R$:1570,00</span>
+                        </div>
+
+                        <div class="mensal">
+                            <p>Profissional:</p>
+                            <span>R$: 782,50</span>
+                        </div>
                     </div>
                 </div>
                      <div class="info">
-                         <p>Consultas hoje</p>
+                         <p>Valores mensais</p>
                      </div>
             </div>
         </div>
@@ -102,36 +110,48 @@
             <div class="card">
                 <div class="card-info">
                     <div class="logo-card">
-                        <img src="/public/assets/002-psychology.svg" alt="">
+                        <img src="/public/assets/atualizar.svg" alt="">
                     </div>
                     <div class="consultas-dia">
-                        <p>Consultas do piscicologia</p>
-                        <span>5</span>
+                        <p>Pagos e devedores</p>
+                        <div class="mensal">
+                            <p>Pagos:</p>
+                            <span class ="green">5</span>
+                        </div>
+
+                        <div class="mensal">
+                            <p>Em aberto:</p>
+                            <span>7</span>
+                        </div>
                     </div>
                 </div>
-                <div class="info">
-                    <p>Consultas por especialidade</p>
-                    
-                </div>
-               </div>
+                     <div class="info">
+                         <p>Valores mensais</p>
+                     </div>
+            </div>
         </div>
          
         <div class="container-card">
-            <div class="card">
-                <div class="card-info">
-                    <div class="logo-card">
-                        <img src="/public/assets/001-pyramid.svg" alt="">
+            <div class="container-card ">
+                <div class="card">
+                    <div class="card-info">
+                        <div class="logo-card">
+                            <img src="/public/assets/conselheiro-financeiro.svg" alt="">
+                        </div>
+                        <div class="consultas-dia">
+                            <p>Valor de profissional</p>
+                           <form action="">
+                               <input type="text" placeholder="Profissional ou especialidade">
+                                <button type="submit">Pesquisar</button>
+                           </form>
+                           <div class=""></div>
+                        </div>
                     </div>
-                    <div class="consultas-dia">
-                        <p>Consultas de nutrição</p>
-                        <span>5</span>
-                    </div>
-                </div>
-                <div class="info">
-                    <p>Consultas por especialidade</p>   
+                         <div class="info">
+                             <p>Valor total mensal de cada profissional</p>
+                         </div>
                 </div>
             </div>
-        </div>
      </section>
      
      <aside>
@@ -139,10 +159,13 @@
             <table class="table-container"> 
                 <thead>
                     <tr>
-                        <th>Nome paciente</th>
+                        <th>Paciente</th>
                         <th>Data</th>
-                        <th>Hora</th>
+                        <th>Valor <BR>consulta</th>
+                        <th>Valor <BR>profissional</th>
+                        <th>Valor <BR>instituição</th>
                         <th>Profissional</th>
+                        <th>Pago ou não</th>
                         <th>Especialidade</th>
                         
                     </tr>
@@ -152,8 +175,11 @@
                     <tr>
                         <td>leandro santos</td>
                         <td >20/11/1996</td>
-                        <td >18:00</td>
+                        <td >R$ 500</td>
+                        <td >R$ 300</td>
+                        <td >R$ 200</td>
                         <td >Karolyna</td>
+                        <td >PAGO</td>
                         <td>Nutrição</td>
                         <td><a href="students/{{student.id}}">Ver</a></td>
                     </tr>
@@ -161,8 +187,11 @@
                     <tr>
                         <td>leandro santos</td>
                         <td >20/11/1996</td>
-                        <td >18:00</td>
+                        <td >R$ 500</td>
+                        <td >R$ 300</td>
+                        <td >R$ 200</td>
                         <td >Karolyna</td>
+                        <td >PAGO</td>
                         <td>Nutrição</td>
                         <td><a href="students/{{student.id}}">Ver</a></td>
                     </tr>
@@ -170,8 +199,11 @@
                     <tr>
                         <td>leandro santos</td>
                         <td >20/11/1996</td>
-                        <td >18:00</td>
+                        <td >R$ 500</td>
+                        <td >R$ 300</td>
+                        <td >R$ 200</td>
                         <td >Karolyna</td>
+                        <td >PAGO</td>
                         <td>Nutrição</td>
                         <td><a href="students/{{student.id}}">Ver</a></td>
                     </tr>
@@ -179,14 +211,14 @@
                     <tr>
                         <td>leandro santos</td>
                         <td >20/11/1996</td>
-                        <td >18:00</td>
+                        <td >R$ 500</td>
+                        <td >R$ 300</td>
+                        <td >R$ 200</td>
                         <td >Karolyna</td>
+                        <td >PAGO</td>
                         <td>Nutrição</td>
                         <td><a href="students/{{student.id}}">Ver</a></td>
                     </tr>
-
-                    
-                  
                 </tbody>
             </table>
          </div>
