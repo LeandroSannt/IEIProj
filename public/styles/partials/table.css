@@ -1,7 +1,4 @@
-.container-table{
-    display: grid;
-    grid-template-rows: 35vh auto;
-}
+
 aside{
     display: flex;
     align-items: center;

@@ -30,3 +30,41 @@ body, input,button,textarea{
     font-weight: 400;
 
 }
+
+
+/*Buttons e input*/
+
+form input{
+    background-color: #e1e2e4;
+    width: 95%;
+    padding: 3px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px -10px black;
+}
+
+form input::placeholder{
+    font-size: 1.2rem;
+    color:#b0b3bb
+    
+}
+
+ form button{
+    width: 95%;
+    outline: none;
+   background-color: var(--color-bg-card);
+   color:#4e5053;
+   border: none;
+   border-radius: 3px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   transition: 200ms;
+   margin-top: 5px;
+}
+
+form button:hover{
+    background-color: var(--color-bg-fundo);
+    cursor: pointer;
+
+}

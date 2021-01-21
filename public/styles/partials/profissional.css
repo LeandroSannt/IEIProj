@@ -1,0 +1,39 @@
+.filter-professional{
+    height: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: move;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-delay: 0.2s;
+    
+}
+
+.filter-professional h1{
+    font-size: 4rem;
+}
+
+.card-table  form{
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    width: 50%;
+    align-items: center;
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.card-table input{
+    margin-top: initial;
+    width: 99%;
+    padding: 4px;
+    
+    
+}
+
+.card-table button{
+    margin-top: 0;
+}
+

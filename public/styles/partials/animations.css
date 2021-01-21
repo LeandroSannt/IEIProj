@@ -12,7 +12,7 @@
 
 @keyframes move {
     0% {
-        opacity: 0;
+        
         transform: translateX(-5rem);
     }
 
