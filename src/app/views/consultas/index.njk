@@ -67,51 +67,26 @@
                 <thead>
                     <tr>
                         <th>Nome paciente</th>
-                        <th>Data</th>
-                        <th>Hora</th>
-                        <th>Profissional</th>
+                        <th>Data da consulta</th>
+                        <th>Hora da consulta</th>
                         <th>Especialidade</th>   
+                        <th>Profissional</th>
                     </tr>
                 </thead>
 
                 <tbody>
-              
-                    <tr>
-                        <td>leandro santos</td>
-                        <td >20/11/1996</td>
-                        <td >18:00</td>
-                        <td >Karolyna</td>
-                        <td>Nutrição</td>
-                        <td><a href="students/{{student.id}}">Ver</a></td>
-                    </tr>
 
+                    {% for consulta in consultas %}
                     <tr>
-                        <td>leandro santos</td>
-                        <td >20/11/1996</td>
-                        <td >18:00</td>
-                        <td >Karolyna</td>
-                        <td>Nutrição</td>
-                        <td><a href="students/{{student.id}}">Ver</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>leandro santos</td>
-                        <td >20/11/1996</td>
-                        <td >18:00</td>
-                        <td >Karolyna</td>
-                        <td>Nutrição</td>
-                        <td><a href="students/{{student.id}}">Ver</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>leandro santos</td>
-                        <td >20/11/1996</td>
-                        <td >18:00</td>
-                        <td >Karolyna</td>
-                        <td>Nutrição</td>
-                        <td><a href="students/{{student.id}}">Ver</a></td>
+                        <td>{{consulta.nome_paciente}}</td>
+                        <td >{{consulta.data}}</td>
+                        <td >{{consulta.hora}}</td>
+                        <td >{{consulta.especialidade}}</td>
+                        <td>João</td>
+                        <td><a href="consultas/detalhes/{{consulta.id}}">Ver</a></td>
                     </tr>
      
+                    {% endfor %}
                 </tbody>
             </table>
                 <div class="pagination"

@@ -2,14 +2,14 @@
 <div class="item">
     <div>Nome do paciente</div>
     <div>
-        <input type="text" name="nome_paciente" placeholder="Nome e sobrenome" value="{{teacher.avatar_url}}">
+        <input type="text" name="nome_paciente" placeholder="Nome e sobrenome" value="{{consulta.nome_paciente}}">
     </div>
 </div>
 
 <div class="item">
     <div>Data da consulta</div>
     <div>
-        <input type="date" name="data"  value="{{teacher.birth}}">
+        <input type="text" name="data" class="date-mask" value="{{teacher.birth}}">
     </div>
 </div>
 
@@ -43,7 +43,7 @@
 <div class="item">
     <div>Valor da consulta</div>
     <div>
-        <input type="number" name="valor_consulta"  placeholder="Valor total da consulta"
+        <input type="number" name="valor_consulta"  step="0.01" placeholder="Valor total da consulta"
             onkeyup="mult(this.value)" value="{{teacher.services}}">
     </div>
 </div>

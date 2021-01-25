@@ -11,12 +11,12 @@ routes.get("/", function (req,res){
 
 routes.get("/consultas", consultas.index); // Mostrar a lista de receitas
 routes.get("/consultas/agendamento", consultas.create); // Mostrar formulário de nova receita
-routes.get("/consultas/detalhes", consultas.details); // Exibir detalhes de uma receita
-routes.get("/consultas/edit", consultas.edit); // Mostrar formulário de edição de receita
+routes.get("/consultas/detalhes/:id", consultas.show); // Exibir detalhes de uma receita
+routes.get("/consultas/detalhes/:id/edit", consultas.edit); // Mostrar formulário de edição de receita
 
 routes.post("/consultas", consultas.post); // Cadastrar nova receita
-/*routes.put("/admin/recipes",multer.array("photos",5),recipes.put); // Editar uma receita
-routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
+routes.put("/consultas",consultas.put); // Editar uma receita
+/*routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
 */
 /*=========CHEFS========*/
 

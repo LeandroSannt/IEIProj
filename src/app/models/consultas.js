@@ -41,16 +41,13 @@ module.exports= {
         ]
        return db.query(query,values)
     },
-/*
+
     find(id){
        return db.query(`
-        SELECT  recipes.*, chefs.name AS chef_recipes 
-        FROM recipes 
-        LEFT JOIN chefs ON(recipes.chef_id = chefs.id)
-        WHERE  recipes.id = $1`,[id])
+        SELECT  * FROM consultas WHERE id = $1`,[id])
         
     },
-    
+/*    
     findBy(filter){
        return db.query(`
         SELECT recipes.*, chefs.name AS chefs_name
@@ -67,15 +64,7 @@ module.exports= {
             ingredients = ($2),
             preparation = ($3),
             information = ($4),
-            chef_id = ($5)
-            WHERE id = $6
-            `
-        var values =[
-            data.title,
-            data.ingredients,
-            data.preparation,
-            data.information,
-            data.chef,
+            chef_id = ($5)n
             data.id
         ]
       return  db.query(query, values)
