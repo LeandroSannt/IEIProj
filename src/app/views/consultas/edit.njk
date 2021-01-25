@@ -1,0 +1,37 @@
+{% extends "layout.njk" %}
+
+    <link rel="stylesheet" href="/styles/partials/form.css">
+    
+
+{% block title %}
+    <title>Agendar consultas</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container-gender">
+
+     <section class ="gender" >
+        <H1>Alterando dados
+        </H1>
+     </section>
+     
+     <aside>
+         <div class="card-table">
+                <form  method="POST" action="/teacher?_method=PUT">
+                         <div class="details">
+                        {%include  "consultas/fields.njk"%}
+                         <button class="enviar" type="submit">Salvar</button>
+                        <button class =delete type="submit" form ="form-delete">Deletar</button> 
+                        </div>
+                </form>
+                       
+                 <form id="form-delete"   method="POST" action="/teacher?_method=DELETE">
+                        <input type="hidden" name="id"value={{teacher.id}}> 
+                </form>
+            </div>
+     </aside>
+</div> 
+
+
+{% endblock content %}

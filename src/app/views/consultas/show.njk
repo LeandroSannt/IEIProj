@@ -1,0 +1,92 @@
+{% extends "layout.njk" %}
+
+    <link rel="stylesheet" href="/styles/partials/form.css">
+    
+
+{% block title %}
+    <title>Agendar consultas</title>
+{% endblock title %}
+
+{% block content %}
+
+    <div class="container-gender">
+
+     <section class ="gender" >
+        <H1>Perfil do paciente</H1>
+     </section>
+     
+     <aside>
+         <div class="card-table">
+               <div class="details">
+            <h3>Detalhes</h3>
+
+            <div class="item">
+                <div>Nome do paciente</div>
+                <div>{{teacher.name}}</div>
+            </div>
+
+            <div class="item">
+                <div>Data da consulta</div>
+                <div>{{teacher.age}}</div>
+            </div>
+
+            <div class="item">
+                <div>Hora da consulta</div>
+                <div>{{teacher.escolaridade}}</div>
+            </div>
+
+            <div class="item">
+                <div>Especialidade</div>
+                <div>{{"Presencial" if teacher.availability ==  "P" else "Online"}}</div>
+            </div>
+
+            <div class="item">
+                <div>Valor da consulta</div>
+                <div>{{teacher.escolaridade}}</div>
+            </div>
+
+            <div class="item">
+                <div>Valor da instituição</div>
+                <div>{{teacher.escolaridade}}</div>
+            </div>
+
+            <div class="item">
+                <div>Valor do profissional</div>
+                <div>{{teacher.escolaridade}}</div>
+            </div>
+
+            <div class="item">
+                <div>acompanhamento</div>
+                <div>
+                    {% for service in teacher.services %}
+                       {{service}}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Desde</div>
+                <div>{{teacher.created_at}}</div>
+            </div>
+
+            <div class="item">
+                <div>Pagamento adiantado</div>
+                <div>{{teacher.escolaridade}}</div>
+            </div>
+
+            <a href="/teacher/{{teacher.id}}/edit" class="buttom">Editar</a>
+
+        </div>
+
+    </section>
+             </div>
+     </aside>
+     
+    </div> 
+
+    {% block scripts %}
+        <script src="/scripts/scriptForm.js"></script>
+    {% endblock scripts %}
+
+{% endblock content %}
+

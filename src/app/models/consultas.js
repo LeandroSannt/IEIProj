@@ -6,36 +6,42 @@ module.exports= {
 
      all(){
        return db.query(`
-        SELECT recipes.*, chefs.name AS chefs_name
-        FROM recipes
-        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)`
+        SELECT *  FROM consultas`
         )
     },
 
     create(data){
     var query =`
-        INSERT INTO recipes(
-            title,
-            ingredients,
-            preparation,
-            information,
-            created_at,
-            chef_id
-        )VALUES($1,$2,$3,$4,$5,$6)
+        INSERT INTO consultas(
+            nome_paciente,
+            data,
+            hora,
+            especialidade,
+            valor_consulta,
+            valor_instituicao,
+            valor_profissional,
+            pagamento,
+            observacao,
+            created_at
+        )VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
         RETURNING id
     `
 
         var values= [
-            data.title,
-            data.ingredients,
-            data.preparation,
-            data.information,
+            data.nome_paciente,
+            data.data,
+            data.hora,
+            data.especialidade,
+            data.valor_consulta,
+            data.valor_instituicao,
+            data.valor_profissional,
+            data.pagamento,
+            data.observacao,
             date(Date.now()).iso,
-            data.chef
         ]
        return db.query(query,values)
     },
-
+/*
     find(id){
        return db.query(`
         SELECT  recipes.*, chefs.name AS chef_recipes 
@@ -149,6 +155,6 @@ module.exports= {
         const results = await db.query(query, [id])
 
         return results.rows
-    }
+    }*/
 }    
     

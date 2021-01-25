@@ -1,89 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/styles/global.css">
-    <link rel="stylesheet" href="/public/styles/partials/header.css">
-    <link rel="stylesheet" href="/public/styles/partials/cards.css">
-    <link rel="stylesheet" href="/public/styles/partials/table.css">
-    <link rel="stylesheet" href="/public/styles/partials/animations.css">
-    <link rel="shortcut icon" href="/public/assets/icons8-consultation-48.png" />
+{% extends "layout.njk" %}
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-        <title>Consultas</title>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <div class="info-personal">
-                <img src="/public/assets/logo-instituto.png" alt="logo do instituto">
-            </div>
-            <nav>
-                <ul>
-                    <a href="#">
-                        <li>
-                            <span>
-                                <img src="/public/assets/001-caderno.svg" alt="">
-                                <p>Agendar consultas</p>
-                            </span>
-                            
-                        </li>
-                    </a>
-                    <a href="/src/app/views/consultas/index.html">
-                        <li>
-                            <span>
-                                <img src="/public/assets/004-consulta.svg" alt="">
-                                <p>Consultas</p>
-                            </span>
-                        </li>
-                    </a>
-                    <a href="#">
-                        <li>
-                            <span>
-                                <img src="/public/assets/005-adicionar-amigo.svg" alt="">
-                                <p>Cadastrar profissionais</p>
-                            </span>
-                            
-                        </li>
-                    </a>
-                    <a href="/src/app/views/profissionais/index.html">
-                        <li>
-                            <span>
-                                <img src="/public/assets/008-silhueta-de-multiplos-usuarios.svg" alt="">
-                                <p>Profissionais</p>
-                            </span>   
-                        </li>
-                    </a>
-                    <a href="/src/app/views/financeiro.html">
-                        <li>
-                            <span>
-                                <img src="/public/assets/009-relatorio.svg" alt="">
-                                <p>Relatorio <BR>financeiro</p>
-                            </span>   
-                        </li>
-                    </a>
-                    <a href="#">
-                        <li>
-                            <span>
-                                <img src="/public/assets/sair.svg" alt="">
-                                <p>Sair</p>
-                            </span>   
-                        </li>
-                    </a>
-                </ul>
-                 
-            </nav>
-        </header>
+{% block title %}
+    <title>Consultas</title>
+{% endblock title %}
 
-        <div class="container-table">
+{% block content %} 
+
+<div class="container-table">
      <section class ="cards" >
         <div class="container-card">
             <div class="card active">
                 <div class="card-info">
                     <div class="logo-card">
-                        <img src="/public/assets/006-calendario.svg" alt="">
+                        <img src="/assets/006-calendario.svg" alt="">
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas do dia</p>
@@ -100,7 +29,7 @@
             <div class="card">
                 <div class="card-info">
                     <div class="logo-card">
-                        <img src="/public/assets/002-psychology.svg" alt="">
+                        <img src="/assets/002-psychology.svg" alt="">
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas do piscicologia</p>
@@ -118,7 +47,7 @@
             <div class="card">
                 <div class="card-info">
                     <div class="logo-card">
-                        <img src="/public/assets/001-pyramid.svg" alt="">
+                        <img src="/assets/001-pyramid.svg" alt="">
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas de nutrição</p>
@@ -141,10 +70,10 @@
                         <th>Data</th>
                         <th>Hora</th>
                         <th>Profissional</th>
-                        <th>Especialidade</th>
-                        
+                        <th>Especialidade</th>   
                     </tr>
                 </thead>
+
                 <tbody>
               
                     <tr>
@@ -182,14 +111,19 @@
                         <td>Nutrição</td>
                         <td><a href="students/{{student.id}}">Ver</a></td>
                     </tr>
-
-                    
-                  
+     
                 </tbody>
             </table>
+                <div class="pagination"
+            data-page={{pagination.page}}
+            data-total={{pagination.total}}
+            data-filter={{filter}}
+        ></div>
          </div>
      </aside>
-    </div>
-    </div>
-</body>
-</html>
+</div>
+
+
+        <script src="/scripts/pagination.js"></script>  
+{% endblock content %}
+

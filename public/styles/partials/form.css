@@ -1,0 +1,166 @@
+.gender{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+}
+
+.container-gender{
+    display: grid;
+    grid-template-rows: 10% auto;
+}
+
+.container .container-create{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+
+
+.details {
+    padding: 18px  32px 18px 32px;
+    
+}
+.put{
+    position: relative;
+}
+
+.details .item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 0 8px;
+}
+
+.details .item:first-child {
+    border: none;
+}
+
+.details h3, .details .item div:nth-child(1) {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgb(16, 7, 146);
+    letter-spacing: 0.7px;
+    font-weight: normal;
+}
+
+.details .item div:nth-child(2) {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.item span {
+    padding: 8px 16px;
+    background-color: var(--blue-primary);
+    border-radius: 16px;
+    color: black;
+    margin-right: 4px;
+    margin-top: 8px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+}    
+
+.card-table.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+}
+
+form textarea,
+ form input {
+    width: 100%;
+    outline: none;
+    border: none;
+    color: rgb(0, 0, 0);
+    background-color: rgb(231, 226, 226);
+    width: 100%;    
+    font-weight: bold;
+    font-size: 18px;
+}
+
+form select {
+    width: 100%;
+    height: 25px;
+    border: none;
+    background-color: rgb(231, 226, 226);
+    outline: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+form input[type="radio"] {
+    width: initial;
+    font-weight: normal;
+}
+form textarea,
+form input::placeholder {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: normal;
+    color: black
+}
+
+ form button[type="submit"], .buttom {
+    padding: 8px 32px;
+    background-color: var(--color-font-logo);
+    color: black;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    opacity: 1;
+    cursor: pointer;      
+}
+
+
+
+
+.buttom {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.details .enviar {
+    width: 100%;
+
+}
+
+.details .enviar:hover {
+    background-color: #6866f1;
+}
+
+
+
+.details .delete{
+    width: 100%;
+    background-color: rgba(245, 41, 41, 0.781);
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.details .delete:hover{
+
+    background-color: rgba(207, 27, 27, 0.781);
+}
+
+
+button[type="submit"], .buttom,
+.card .put .delete:hover{
+  opacity: 0.7;
+
+}
+
+.card .put .salvar{
+    width: 50%;
+}

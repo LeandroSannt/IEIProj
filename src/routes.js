@@ -1,24 +1,21 @@
 const express = require("express")
 const routes =express.Router()
-const multer = require("./app/middlewares/multer")
 const consultas = require("./app/controller/consultas")
 
-
 routes.get("/", function (req,res){
-  return res.redirect("index")
+  return res.redirect("consultas")
 })
-
 
 
 /*=========RECIPES========*/
 
-routes.get("/consultas/index", consultas.index); // Mostrar a lista de receitas
-/*routes.get("/admin/recipes/create", recipes.create); // Mostrar formulário de nova receita
-routes.get("/admin/recipes/details/:id", recipes.details); // Exibir detalhes de uma receita
-routes.get("/admin/recipes/details/:id/edit", recipes.edit); // Mostrar formulário de edição de receita
+routes.get("/consultas", consultas.index); // Mostrar a lista de receitas
+routes.get("/consultas/agendamento", consultas.create); // Mostrar formulário de nova receita
+routes.get("/consultas/detalhes", consultas.details); // Exibir detalhes de uma receita
+routes.get("/consultas/edit", consultas.edit); // Mostrar formulário de edição de receita
 
-routes.post("/admin/recipes",multer.array("photos",5), recipes.post); // Cadastrar nova receita
-routes.put("/admin/recipes",multer.array("photos",5),recipes.put); // Editar uma receita
+routes.post("/consultas", consultas.post); // Cadastrar nova receita
+/*routes.put("/admin/recipes",multer.array("photos",5),recipes.put); // Editar uma receita
 routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
 */
 /*=========CHEFS========*/

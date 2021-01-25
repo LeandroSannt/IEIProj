@@ -15,25 +15,4 @@
     font-size: 4rem;
 }
 
-.card-table  form{
-    display: grid;
-    grid-template-columns: 1fr 100px;
-    width: 50%;
-    align-items: center;
-    margin-left: 40px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-.card-table input{
-    margin-top: initial;
-    width: 99%;
-    padding: 4px;
-    
-    
-}
-
-.card-table button{
-    margin-top: 0;
-}
 

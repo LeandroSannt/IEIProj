@@ -12,7 +12,8 @@ header{
     min-width: 200px;
     height: 100%;
     background-color: white;
-    box-shadow: 1px 10px 5px black;
+    position: relative;
+    box-shadow: 1px -10px 5px black;
     animation-name: up;
     animation-duration: 700ms;
     animation-fill-mode: forwards;
@@ -25,7 +26,7 @@ header .info-personal{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/public/assets/imagem-fundo5.jpeg");
+    background-image: url("/assets/imagem-fundo5.jpeg");
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 180% 100%;
@@ -43,7 +44,7 @@ header .info-personal img {
 header nav{
     display: grid;
     grid-template-rows: 1fr 50px;
-    background-color: white;
+
 
 }
 
@@ -97,6 +98,10 @@ header nav ul a li span p{
     margin-right: 10px ;
     letter-spacing: 1px;
     line-height: 20px;
+}
+
+.active{
+    
 }
 
 
