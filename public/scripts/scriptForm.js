@@ -2,10 +2,11 @@ function mult(value){
     const instituto = (40/100) * value
     const profissional = (60/100) * value
         
-     document.querySelector("#prof").value = instituto
-     document.querySelector("#insti").value = profissional
+     document.querySelector("#prof").value = instituto.toFixed(2)
+     document.querySelector("#insti").value = profissional.toFixed(2)
  
  }
+
  
 /*
  const currentPage =location.pathname

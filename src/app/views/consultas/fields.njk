@@ -9,14 +9,14 @@
 <div class="item">
     <div>Data da consulta</div>
     <div>
-        <input type="date" name="data" value="{{teacher.birth}}">
+        <input type="date" name="data"  value="{{teacher.birth}}">
     </div>
 </div>
 
 <div class="item">
     <div>Hora</div>
     <div>
-        <input type="text" name="hora" placeholder="Hora da consulta" value="{{teacher.name}}">
+        <input type="text" name="hora" placeholder="Hora da consulta" class="time-mask" value="{{teacher.name}}">
     </div>
 </div>
 
@@ -40,25 +40,25 @@
     </div>
 </div>
 
-
 <div class="item">
     <div>Valor da consulta</div>
     <div>
-        <input type="number" name="valor_consulta" placeholder="Valor total da consulta" onkeyup="mult(this.value)" value="{{teacher.services}}">
+        <input type="number" name="valor_consulta"  placeholder="Valor total da consulta"
+            onkeyup="mult(this.value)" value="{{teacher.services}}">
     </div>
 </div>
 
 <div class="item">
     <div>Valor da instituição</div>
     <div>
-        <input type="number" name="valor_instituicao" placeholder="Parte da instituição" id="prof" value="{{teacher.services}}">
+        <input type="number" name="valor_instituicao" step=0.01 placeholder="Parte da instituição" id="prof" value="{{teacher.services}}">
     </div>
 </div>
 
 <div class="item">
     <div>Valor do profissional</div>
     <div>
-        <input type="number" name="valor_profissional" placeholder="Parte do profissional" id="insti" value="{{teacher.services}}">
+        <input type="number" name="valor_profissional"step=0.01 placeholder="Parte do profissional" id="insti" value="{{teacher.services}}">
     </div>
 </div>
 

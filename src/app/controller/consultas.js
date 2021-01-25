@@ -16,10 +16,12 @@ async create(req,res){
     
 async post(req,res){
 
- /*   const keys =Object.keys(req.body)
+    const keys =Object.keys(req.body)
     for(key of keys){
+        if(req.body[key] == ""){
         return res.send("dados faltando")
-    }*/
+        }
+    }
     let results = await Consultas.create(req.body)
     const consultaId = results.rows[0].id
 
