@@ -31,7 +31,7 @@
 .container .cards .container-card .card{
     display: grid;
     grid-template-rows:1fr 50px;
-    width: 370px;
+    width: 350px;
     height: 200px;
     background-color: #ebf2f5;
     border-radius: 10px;
