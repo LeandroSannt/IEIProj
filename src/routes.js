@@ -1,35 +1,34 @@
 const express = require("express")
 const routes =express.Router()
 const consultas = require("./app/controller/consultas")
+const profissionais = require("./app/controller/profissionais")
 
 routes.get("/", function (req,res){
   return res.redirect("consultas")
 })
 
+/*=========Consultas========*/
 
-/*=========RECIPES========*/
+routes.get("/consultas", consultas.index);
+routes.get("/consultas/agendamento", consultas.create);
+routes.get("/consultas/detalhes/:id", consultas.show); 
+routes.get("/consultas/detalhes/:id/edit", consultas.edit); 
 
-routes.get("/consultas", consultas.index); // Mostrar a lista de receitas
-routes.get("/consultas/agendamento", consultas.create); // Mostrar formulário de nova receita
-routes.get("/consultas/detalhes/:id", consultas.show); // Exibir detalhes de uma receita
-routes.get("/consultas/detalhes/:id/edit", consultas.edit); // Mostrar formulário de edição de receita
+routes.post("/consultas", consultas.post); 
+routes.put("/consultas",consultas.put);
+routes.delete("/consultas", consultas.delete); 
 
-routes.post("/consultas", consultas.post); // Cadastrar nova receita
-routes.put("/consultas",consultas.put); // Editar uma receita
-/*routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
-*/
-/*=========CHEFS========*/
+/*=========Profissionais========*/
 
-/*routes.get("/admin/chefs", chefs.index); // Mostrar a lista de receitas
-routes.get("/admin/chefs/create", chefs.create); // Mostrar formulário de nova receita
-routes.get("/admin/chefs/details/:id", chefs.details); // Exibir detalhes de uma receita
-routes.get("/admin/chefs/details/:id/edit", chefs.edit); // Mostrar formulário de edição de receita
+routes.get("/profissionais", profissionais.index); 
+routes.get("/profissionais/cadastro", profissionais.create); 
+routes.get("/profissionais", profissionais.show);
+routes.get("/profissionais/detalhes/:id/edit", profissionais.edit);
 
-routes.post("/admin/chefs", chefs.post); // Cadastrar nova receita
-routes.put("/admin/chefs", chefs.put); // Editar uma receita
-routes.delete("/admin/chefs", chefs.delete); // Deletar uma receita
+routes.post("/profissionais", profissionais.post); 
+routes.put("/profissionais", profissionais.put); 
+routes.delete("/profissionais", profissionais.delete);
 
-*/
 routes.get('not-found', function(req, res) {
     res.render("/views/not-found");
   });
