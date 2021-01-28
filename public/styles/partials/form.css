@@ -85,6 +85,12 @@ form textarea,
     width: 100%;    
     font-weight: bold;
     font-size: 18px;
+    border-radius: 5px;
+}
+
+form input:focus{
+    color: rgb(36, 35, 34);
+    border: solid 1px black;
 }
 
 form select {

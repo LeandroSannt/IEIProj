@@ -6,37 +6,23 @@ module.exports= {
 
      all(){
        return db.query(`
-        SELECT *  FROM consultas`
+        SELECT *  FROM profissionais`
         )
     },
 
     create(data){
     var query =`
-        INSERT INTO consultas(
-            nome_paciente,
-            data,
-            hora,
+        INSERT INTO profissionais(
+            nome,
             especialidade,
-            valor_consulta,
-            valor_instituicao,
-            valor_profissional,
-            pagamento,
-            observacao,
             created_at
-        )VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+        )VALUES($1,$2,$3)
         RETURNING id
     `
 
         var values= [
-            data.nome_paciente,
-            data.data,
-            data.hora,
+            data.nome,
             data.especialidade,
-            data.valor_consulta,
-            data.valor_instituicao,
-            data.valor_profissional,
-            data.pagamento,
-            data.observacao,
             date(Date.now()).iso,
         ]
        return db.query(query,values)
@@ -44,41 +30,27 @@ module.exports= {
 
     find(id){
        return db.query(`
-        SELECT  * FROM consultas WHERE id = $1`,[id])
+        SELECT  * FROM profissionais WHERE id = $1`,[id])
         
     },
 
     update(data){
         var query = `
-        UPDATE consultas SET
-            nome_paciente = ($1),
-            data = ($2),
-            hora = ($3),
-            especialidade = ($4),
-            valor_consulta = ($5),
-            valor_instituicao = ($6),
-            valor_profissional = ($7),
-            pagamento = ($8),
-            observacao = ($9)
-            WHERE id = $10
+        UPDATE profissionais SET
+            nome = ($1),
+            especialidade = ($2)
+            WHERE id = $3
             `
         var values =[
-            data.nome_paciente,
-            data.data,
-            data.hora,
+            data.nome,
             data.especialidade,
-            data.valor_consulta,
-            data.valor_instituicao,
-            data.valor_profissional,
-            data.pagamento,
-            data.observacao,
             data.id
         ]
       return  db.query(query, values)
     },  
 
     delete(id){
-      return  db.query(`DELETE  FROM consultas WHERE id = $1`,[id])
+      return  db.query(`DELETE  FROM profissionais WHERE id = $1`,[id])
 
     },
 

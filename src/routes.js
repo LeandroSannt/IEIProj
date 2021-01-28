@@ -22,7 +22,7 @@ routes.delete("/consultas", consultas.delete);
 
 routes.get("/profissionais", profissionais.index); 
 routes.get("/profissionais/cadastro", profissionais.create); 
-routes.get("/profissionais", profissionais.show);
+routes.get("/profissionais/detalhes/:id", profissionais.show);
 routes.get("/profissionais/detalhes/:id/edit", profissionais.edit);
 
 routes.post("/profissionais", profissionais.post); 

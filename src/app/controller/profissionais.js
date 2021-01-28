@@ -1,69 +1,69 @@
 var {age, date} =require("../lib/configs/utils")
-var Consultas =require("../models/consultas")
+var Profissionais =require("../models/profissionais")
 
 module.exports={
     
  async index(req,res){
      
-    let results = await Consultas.all(req.body)
-    const consultas = results.rows
+    let results = await Profissionais.all(req.body)
+    const profissionais = results.rows
 
-    return res.render("consultas/index",{consultas}) 
+    return res.render("profissionais/index",{profissionais}) 
     },
 
 async create(req,res){
-    return res.render("consultas/create")
+    return res.render("profissionais/create")
     },
     
 async post(req,res){
 
     const keys =Object.keys(req.body)
     for(key of keys){
-        if(req.body[key] == "" && key != "observacao"){
+        if(req.body[key] == "" && key){
         return res.send("dados faltando")
         }
     }
-    let results = await Consultas.create(req.body)
-    const consultaId = results.rows[0].id
+    let results = await Profissionais.create(req.body)
+    const profissionalId = results.rows[0].id
 
-    return res.redirect(`/consultas`)
+    return res.redirect(`/profissionais`)
 
     },
 
 async show(req,res){ 
-    let results = await Consultas.find(req.params.id)
-    consulta =results.rows[0]
+    let results = await Profissionais.find(req.params.id)
+    profissional =results.rows[0]
 
-    if(!consulta) return res.send("consulta não encontrada")
+    if(!profissional) return res.send("profissional não encontrada")
     
-    return res.render(`consultas/show`,{consulta})
+    return res.render(`profissionais/show`,{profissional})
 
     },
     
 async edit(req,res){
-    let results = await Consultas.find(req.params.id)
-    const consulta = results.rows[0]
-        if(!consulta) return res.send("consulta não encontrada")
+    let results = await Profissionais.find(req.params.id)
+    const profissional = results.rows[0]
+        if(!profissional) return res.send("profissional não encontrada")
 
-    return res.render("consultas/edit",{consulta})
+    return res.render("profissionais/edit",{profissional})
 
     },
     
 async put(req,res){
     const keys =Object.keys(req.body)
     for(key of keys){
-        if(req.body[key] == "" && key != "observacao"){
+        if(req.body[key] == "" && key ){
         return res.send("dados faltando")
         }
     }
-    await Consultas.update(req.body)
-    return res.redirect("/consultas")
+    await Profissionais.update(req.body)
+    return res.redirect("/profissionais")
 
     },
 
 async delete(req,res){
-    await Consultas.delete(req.body.id)
-    return res.redirect ("/consultas")
+    await Profissionais.delete(req.body.id)
+    return res.redirect ("/profissionais")
     }
 }
 

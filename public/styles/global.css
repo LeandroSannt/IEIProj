@@ -51,7 +51,7 @@ form input::placeholder{
 }
 
  form button{
-    width: 95%;
+    width: 100%;
     outline: none;
    background-color: var(--color-bg-card);
    color:#4e5053;

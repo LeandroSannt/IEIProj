@@ -4,7 +4,7 @@
     
 
 {% block title %}
-    <title>Agendar consultas</title>
+    <title>Profissional: {{profissional.nome}}</title>
 {% endblock title %}
 
 {% block content %}
@@ -12,7 +12,7 @@
     <div class="container-gender">
 
      <section class ="gender" >
-        <H1>Perfil do paciente</H1>
+        <H1>Perfil do profissional</H1>
      </section>
      
      <aside>
@@ -22,53 +22,15 @@
 
             <div class="item">
                 <div>Nome do paciente</div>
-                <div>{{consulta.nome_paciente}}</div>
-            </div>
-
-            <div class="item">
-                <div>Data da consulta</div>
-                <div>{{consulta.data}}</div>
-            </div>
-
-            <div class="item">
-                <div>Hora da consulta</div>
-                <div>{{consulta.hora}}</div>
+                <div>{{profissional.nome}}</div>
             </div>
 
             <div class="item">
                 <div>Especialidade</div>
-                <div>{{consulta.especialidade}}</div>
+                <div>{{profissional.especialidade}}</div>
             </div>
 
-
-            <div class="item">
-                <div>Pagamento</div>
-                <div>{{"Pago" if consulta.pagamento ==  "P" else "Não pago"}}</div>
-            </div>
-
-            <div class="item">
-                <div>Valor da consulta</div>
-                <div>R$: {{consulta.valor_consulta}}</div>
-            </div>
-
-            <div class="item">
-                <div>Valor da instituição</div>
-                <div>R$: {{consulta.valor_instituicao}}</div>
-            </div>
-
-            <div class="item">
-                <div>Valor do profissional</div>
-                <div> R$: {{consulta.valor_profissional}}</div>
-            </div>
-
-             <div class="item">
-                <div>Observações</div>
-                <div>
-                {{consulta.observacao}}
-                </div>
-            </div>
-
-            <a href="/consultas/detalhes/{{consulta.id}}/edit" class="buttom">Editar</a>
+            <a href="/profissionais/detalhes/{{profissional.id}}/edit" class="buttom">Editar</a>
 
         </div>
 

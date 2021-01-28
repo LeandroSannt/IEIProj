@@ -4,7 +4,7 @@
     
 
 {% block title %}
-    <title>Agendar consultas</title>
+    <title>Editação de {{profissional.nome}}</title>
 {% endblock title %}
 
 {% block content %}
@@ -17,18 +17,18 @@
      
      <aside>
          <div class="card-table">
-                <form  method="POST" action="/consultas?_method=PUT">
+                <form  method="POST" action="/profissionais?_method=PUT">
                          <div class="details">
-                        {%include  "consultas/fields.njk"%}
+                        {%include  "profissionais/fields.njk"%}
                          <button class="enviar" type="submit">Salvar</button>
                         <button class =delete type="submit" form ="form-delete">Deletar</button> 
                         </div>
-                        <input type="hidden" name="id"value={{consulta.id}}> 
+                        <input type="hidden" name="id"value={{profissional.id}}> 
 
                 </form>
                        
-                 <form id="form-delete"   method="POST" action="/consultas?_method=DELETE">
-                        <input type="hidden" name="id"value={{consulta.id}}> 
+                 <form id="form-delete"   method="POST" action="/profissionais?_method=DELETE">
+                        <input type="hidden" name="id"value={{profissional.id}}> 
                 </form>
             </div>
      </aside>

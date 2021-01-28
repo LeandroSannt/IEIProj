@@ -1,22 +1,8 @@
 
 <div class="item">
-    <div>Nome do paciente</div>
+    <div>Nome do profissional</div>
     <div>
-        <input type="text" name="nome_paciente" placeholder="Nome e sobrenome" value="{{consulta.nome_paciente}}">
-    </div>
-</div>
-
-<div class="item">
-    <div>Data da consulta</div>
-    <div>
-        <input type="text" name="data" class="date-mask" value="{{consulta.data}}">
-    </div>
-</div>
-
-<div class="item">
-    <div>Hora</div>
-    <div>
-        <input type="text" name="hora" placeholder="Hora da consulta" class="time-mask" value="{{consulta.hora}}">
+        <input type="text" name="nome" placeholder="Nome e sobrenome" value="{{profissional.nome}}">
     </div>
 </div>
 
@@ -26,13 +12,13 @@
         <select name="especialidade">
             <option 
                 value="Piscicologia"
-                {% if consulta.especialidade == "Piscicologiar"   %} selected="selected" {% endif %}>
+                {% if profissional.especialidade == "Piscicologia"   %} selected="selected" {% endif %}>
                 Piscicologia
             </option>
 
             <option 
                 value="Nutricao"
-                {% if consulta.especialidade == "Nutricao"   %} selected="selected" {% endif %}>
+                {% if profissional.especialidade == "Nutricao"   %} selected="selected" {% endif %}>
                 Nutrição
             </option>
 
@@ -40,47 +26,3 @@
     </div>
 </div>
 
-<div class="item">
-    <div>Valor da consulta</div>
-    <div>
-        <input type="number" name="valor_consulta"  step="0.01" placeholder="Valor total da consulta"
-            onkeyup="mult(this.value)" value="{{consulta.valor_consulta}}">
-    </div>
-</div>
-
-<div class="item">
-    <div>Valor da instituição</div>
-    <div>
-        <input type="number" name="valor_instituicao" step=0.01 placeholder="Parte da instituição" id="prof" value="{{consulta.valor_instituicao}}">
-    </div>
-</div>
-
-<div class="item">
-    <div>Valor do profissional</div>
-    <div>
-        <input type="number" name="valor_profissional"step=0.01 placeholder="Parte do profissional" id="insti" value="{{consulta.valor_profissional}}">
-    </div>
-</div>
-
-<div class="item">
-    <div>Pagamento adiantado</div>
-    <div>
-        <span>
-            <input type="radio" name="pagamento" id="pagamentoP" value="P" 
-            {% if consulta.pagamento == "P"   %} checked {% endif %}>
-            <label for="pagamentoP">Pago</label>
-        </span>
-        <span>
-            <input type="radio" name="pagamento" value="NP" 
-            {% if consulta.pagamento == "NP"   %} checked {% endif %} id="pagamentoNP">
-            <label for="pagamentoNP">Não pago</label>
-        </span>
-    </div>
-</div>
-
-<div class="item">
-    <div>Observações</div>
-    <div>
-<textarea name="observacao" id="observacao" cols="30" rows="10"  placeholder="Observaçoes extras">{{consulta.observacao}}</textarea>
-    </div>
-</div>
