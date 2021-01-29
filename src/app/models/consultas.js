@@ -82,27 +82,20 @@ module.exports= {
 
     },
 
-/*    
+    
     findBy(filter){
        return db.query(`
-        SELECT recipes.*, chefs.name AS chefs_name
+        SELECT profissionais.*, profissionais.nome AS profissionais_name
         FROM recipes
         LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
         WHERE recipes.title ILIKE '%${filter}%'
         OR chefs.name ILIKE '%${filter}%'`) 
     },
 
-
-    delete(id){
-      return  db.query(`DELETE  FROM recipes WHERE id = $1`,[id])
-
+    profissionaisSelect(){
+       return db.query(`SELECT * FROM profissionais`)
     },
-    /*
-
-    chefSelectOptions(){
-       return db.query(`SELECT name,id FROM chefs`)
-    },
-
+/*
     paginate(params){
         const {filter,limit,offset,callback} = params
 

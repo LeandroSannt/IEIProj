@@ -41,6 +41,18 @@
 </div>
 
 <div class="item">
+        <div>Selecionar profissional</div>
+            <select name="profissionais" >
+                {% for profissionais in profissionaisOptions %}
+                    <option value="{{teacher.id}}"
+                        {% if consultas.profissionais_id == consultas.id %}selected {%endif%} > 
+                        {{profissionais.nome}} - {{profissionais.especialidade}}
+                     </option>
+                {% endfor %}
+            </select>
+ </div>
+
+<div class="item">
     <div>Valor da consulta</div>
     <div>
         <input type="number" name="valor_consulta"  step="0.01" placeholder="Valor total da consulta"

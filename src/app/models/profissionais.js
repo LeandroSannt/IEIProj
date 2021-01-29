@@ -6,7 +6,10 @@ module.exports= {
 
      all(){
        return db.query(`
-        SELECT *  FROM profissionais`
+        SELECT profissionais. * ,count(consultas) AS total_consultas
+        FROM  profissionais
+        LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+        GROUP BY profissionais.id`
         )
     },
 
@@ -15,8 +18,9 @@ module.exports= {
         INSERT INTO profissionais(
             nome,
             especialidade,
-            created_at
-        )VALUES($1,$2,$3)
+            created_at,
+            profissionais_id
+        )VALUES($1,$2,$3,$4)
         RETURNING id
     `
 
@@ -24,6 +28,7 @@ module.exports= {
             data.nome,
             data.especialidade,
             date(Date.now()).iso,
+            data.profissionais,
         ]
        return db.query(query,values)
     },
@@ -39,11 +44,14 @@ module.exports= {
         UPDATE profissionais SET
             nome = ($1),
             especialidade = ($2)
-            WHERE id = $3
+            profissionais_id = ($3)
+
+            WHERE id = $4
             `
         var values =[
             data.nome,
             data.especialidade,
+            data.profissionais,
             data.id
         ]
       return  db.query(query, values)

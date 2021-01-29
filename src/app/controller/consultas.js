@@ -12,17 +12,15 @@ module.exports={
     },
 
 async create(req,res){
-    return res.render("consultas/create")
+    let results = await Consultas.profissionaisSelect(req.body)
+    const options = results.rows
+        return res.render("consultas/create",{profissionaisOptions:options})
+  
+
     },
     
 async post(req,res){
 
-    const keys =Object.keys(req.body)
-    for(key of keys){
-        if(req.body[key] == "" && key != "observacao"){
-        return res.send("dados faltando")
-        }
-    }
     let results = await Consultas.create(req.body)
     const consultaId = results.rows[0].id
 
