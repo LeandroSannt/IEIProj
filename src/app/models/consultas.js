@@ -6,7 +6,10 @@ module.exports= {
 
      all(){
        return db.query(`
-       SELECT * FROM consultas`
+        SELECT consultas.* ,profissionais.especialidade AS prof_esp,
+        profissionais.nome AS prof_nome
+        FROM consultas
+        LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)`
         )
     },
 
@@ -92,11 +95,13 @@ module.exports= {
         OR chefs.name ILIKE '%${filter}%'`) 
     },
 
+    
+
     profissionaisSelect(){
        return db.query(`SELECT * FROM profissionais`)
     },
 
-    profissionaisConsultas(){
+    profissionalEspecialidade(){
         return db.query(`SELECT nome_paciente FROM consultas`)
     },
 

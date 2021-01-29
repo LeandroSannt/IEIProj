@@ -10,7 +10,7 @@ body{
 
     height: 100vh;
     color: black;
-    background-color: #ebf2f5;
+    background-color: #ebf2f5  !important;
     
 }
 :root{
@@ -20,7 +20,6 @@ body{
     --color-font-logo:#5179b5
 }
 
-var
 
 body, input,button,textarea{
     font-size: 1.8rem;

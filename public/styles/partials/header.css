@@ -1,11 +1,11 @@
 
-
-.container{
+.container-global{
     min-width: 70%;
     height: 100%;
     display: grid;
     grid-template-columns: 15% 85%;
 }
+
 header{
     display: grid;
     grid-template-rows: 30vh 70vh;
@@ -51,6 +51,7 @@ header nav{
 header nav ul{
     display: grid;
     grid-template-rows: repeat(6,1fr);
+    padding-left: 0;
 
 }
 
