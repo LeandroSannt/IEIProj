@@ -117,6 +117,7 @@ module.exports= {
         count(consultas.especialidade) AS total_nutricao from consultas
         WHERE consultas.especialidade = 'Nutricao'
         GROUP BY especialidade`)
+        
     },
 
     totalConsultas(){

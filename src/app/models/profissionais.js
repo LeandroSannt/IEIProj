@@ -18,17 +18,15 @@ module.exports= {
         INSERT INTO profissionais(
             nome,
             especialidade,
-            created_at,
-            profissionais_id
-        )VALUES($1,$2,$3,$4)
+            created_at
+        )VALUES($1,$2,$3)
         RETURNING id
     `
 
         var values= [
             data.nome,
             data.especialidade,
-            date(Date.now()).iso,
-            data.profissionais,
+            date(Date.now()).iso
         ]
        return db.query(query,values)
     },
@@ -44,14 +42,11 @@ module.exports= {
         UPDATE profissionais SET
             nome = ($1),
             especialidade = ($2)
-            profissionais_id = ($3)
-
-            WHERE id = $4
+            WHERE id = $3
             `
         var values =[
             data.nome,
             data.especialidade,
-            data.profissionais,
             data.id
         ]
       return  db.query(query, values)
