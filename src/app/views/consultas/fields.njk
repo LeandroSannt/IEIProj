@@ -44,7 +44,7 @@
         <div>Selecionar profissional</div>
             <select name="profissionais" >
                 {% for profissionais in profissionaisOptions %}
-                    <option value="{{teacher.id}}"
+                    <option value="{{profissionais.id}}"
                         {% if consultas.profissionais_id == consultas.id %}selected {%endif%} > 
                         {{profissionais.nome}} - {{profissionais.especialidade}}
                      </option>

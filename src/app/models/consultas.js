@@ -6,7 +6,7 @@ module.exports= {
 
      all(){
        return db.query(`
-        SELECT *  FROM consultas`
+       SELECT * FROM consultas`
         )
     },
 
@@ -95,6 +95,29 @@ module.exports= {
     profissionaisSelect(){
        return db.query(`SELECT * FROM profissionais`)
     },
+
+    profissionaisConsultas(){
+        return db.query(`SELECT nome_paciente FROM consultas`)
+    },
+
+    piscicologia(){
+        return db.query(`SELECT especialidade, 
+        count(consultas.especialidade) AS total_piscicologia from consultas
+        WHERE consultas.especialidade = 'Piscicologia'
+        GROUP BY especialidade`)
+    },
+
+   nutricao(){
+        return db.query(`SELECT especialidade, 
+        count(consultas.especialidade) AS total_nutricao from consultas
+        WHERE consultas.especialidade = 'Nutricao'
+        GROUP BY especialidade`)
+    },
+
+    totalConsultas(){
+        return db.query(`SELECT count(*) FROM consultas`)
+    }
+
 /*
     paginate(params){
         const {filter,limit,offset,callback} = params

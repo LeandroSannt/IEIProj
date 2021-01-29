@@ -16,7 +16,9 @@
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas do dia</p>
-                        <span>5</span>
+                        {% for total in totalConsultas %}
+                             <span>{{total.count}}</span> 
+                        {% endfor %}
                     </div>
                 </div>
                      <div class="info">
@@ -33,7 +35,9 @@
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas do piscicologia</p>
-                        <span>5</span>
+                        {% for piscicologia in profissionaisEspecialidade %}
+                             <span>{{piscicologia.total_piscicologia}}</span> 
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="info">
@@ -51,7 +55,9 @@
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas de nutrição</p>
-                        <span>5</span>
+                        {% for total in nutricao%}
+                             <span>{{total.total_nutricao}}</span> 
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="info">

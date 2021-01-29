@@ -8,7 +8,16 @@ module.exports={
     let results = await Consultas.all(req.body)
     const consultas = results.rows
 
-    return res.render("consultas/index",{consultas}) 
+    results = await Consultas.piscicologia(req.body)
+    const piscicologia = results.rows
+
+    results = await Consultas.nutricao(req.body)
+    const nutricao = results.rows
+
+    results = await Consultas.totalConsultas(req.body)
+    const totalConsultas = results.rows
+
+    return res.render("consultas/index",{consultas, profissionaisEspecialidade:piscicologia,totalConsultas,nutricao}) 
     },
 
 async create(req,res){
