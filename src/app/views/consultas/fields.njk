@@ -9,7 +9,7 @@
 <div class="item">
     <div>Data da consulta</div>
     <div>
-        <input type="text" name="data" class="date-mask" value="{{consulta.data}}">
+        <input type="date" name="data" value="{{consulta.data}}">
     </div>
 </div>
 
@@ -17,26 +17,6 @@
     <div>Hora</div>
     <div>
         <input type="text" name="hora" placeholder="Hora da consulta" class="time-mask" value="{{consulta.hora}}">
-    </div>
-</div>
-
-<div class="item">
-    <div>Especialidade</div>
-    <div>
-        <select name="especialidade">
-            <option 
-                value="Piscicologia"
-                {% if consulta.especialidade == "Piscicologiar"   %} selected="selected" {% endif %}>
-                Piscicologia
-            </option>
-
-            <option 
-                value="Nutricao"
-                {% if consulta.especialidade == "Nutricao"   %} selected="selected" {% endif %}>
-                Nutrição
-            </option>
-
-            </select>
     </div>
 </div>
 

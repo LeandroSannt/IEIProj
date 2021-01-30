@@ -16,8 +16,8 @@
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas do dia</p>
-                        {% for total in totalConsultas %}
-                             <span>{{total.count}}</span> 
+                        {% for consultas in totalConsultas %}
+                             <span>{{consultas.total}}</span> 
                         {% endfor %}
                     </div>
                 </div>
@@ -35,8 +35,8 @@
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas do piscicologia</p>
-                        {% for piscicologia in profissionaisEspecialidade %}
-                             <span>{{piscicologia.total_piscicologia}}</span> 
+                        {% for piscicologia in totalPiscicologia %}
+                             <span>{{piscicologia.total}}</span> 
                         {% endfor %}
                     </div>
                 </div>
@@ -55,8 +55,8 @@
                     </div>
                     <div class="consultas-dia">
                         <p>Consultas de nutrição</p>
-                        {% for total in nutricao%}
-                             <span>{{total.total_nutricao}}</span> 
+                        {% for nutricao in totalNutricao%}
+                             <span>{{nutricao.total}}</span> 
                         {% endfor %}
                     </div>
                 </div>
@@ -73,25 +73,23 @@
                 <thead>
                     <tr>
                         <th>Nome paciente</th>
+                        <th>Profissional</th>
+                        <th>Especialidade</th>   
                         <th>Data da consulta</th>
                         <th>Hora da consulta</th>
-                        <th>Especialidade</th>   
-                        <th>Profissional</th>
                     </tr>
                 </thead>
 
                 <tbody>
-
                     {% for consulta in consultas %}
                     <tr>
                         <td>{{consulta.nome_paciente}}</td>
+                        <td >{{consulta.prof_nome}}</td>
+                        <td >{{consulta.prof_esp}}</td>
                         <td >{{consulta.data}}</td>
                         <td >{{consulta.hora}}</td>
-                        <td >{{consulta.prof_esp}}</td>
-                        <td >{{consulta.prof_nome}}</td>
                         <td><a href="consultas/detalhes/{{consulta.id}}">Ver</a></td>
                     </tr>
-     
                     {% endfor %}
                 </tbody>
             </table>

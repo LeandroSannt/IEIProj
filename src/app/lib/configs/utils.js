@@ -24,7 +24,7 @@ module.exports = {
             year,
             iso:`${year}-${month}-${day}`,
             DayMonth:`${day}/${month}`,
-            format:`${day}-${month}-${year}`
+            format:`${day}/${month}/${year}`
         }
     }
 

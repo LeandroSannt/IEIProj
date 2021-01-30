@@ -1,4 +1,4 @@
-var {age, date} =require("../lib/configs/utils")
+var {date} =require("../lib/configs/utils")
 var db = require("../lib/configs/db")
 
 
@@ -9,7 +9,8 @@ module.exports= {
         SELECT consultas.* ,profissionais.especialidade AS prof_esp,
         profissionais.nome AS prof_nome
         FROM consultas
-        LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)`
+        LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
+        ORDER BY hora ASC`
         )
     },
 
@@ -19,28 +20,28 @@ module.exports= {
             nome_paciente,
             data,
             hora,
-            especialidade,
             valor_consulta,
             valor_instituicao,
             valor_profissional,
             pagamento,
             observacao,
+            profissional_id,
             created_at
         )VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
         RETURNING id
     `
-
+        date(data.data).format
         var values= [
             data.nome_paciente,
             data.data,
             data.hora,
-            data.especialidade,
             data.valor_consulta,
             data.valor_instituicao,
             data.valor_profissional,
             data.pagamento,
             data.observacao,
-            date(Date.now()).iso,
+            data.profissionais,
+            date(Date.now()).iso
         ]
        return db.query(query,values)
     },
@@ -48,33 +49,47 @@ module.exports= {
     find(id){
        return db.query(`
         SELECT  * FROM consultas WHERE id = $1`,[id])
-        
     },
 
+    findBy(id){
+        return db.query(`
+        SELECT profissionais.*
+        FROM profissionais
+        LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+        WHERE consultas.id = $1`,[id]) 
+     },
+
+    profissionaisSelect(){
+        return db.query(`
+        SELECT * FROM profissionais
+        ORDER BY created_at ASC
+        `)
+     },
+ 
     update(data){
         var query = `
         UPDATE consultas SET
             nome_paciente = ($1),
             data = ($2),
             hora = ($3),
-            especialidade = ($4),
-            valor_consulta = ($5),
-            valor_instituicao = ($6),
-            valor_profissional = ($7),
-            pagamento = ($8),
-            observacao = ($9)
+            valor_consulta = ($4),
+            valor_instituicao = ($5),
+            valor_profissional = ($6),
+            pagamento = ($7),
+            observacao = ($8),
+            profissional_id = ($9)
             WHERE id = $10
             `
         var values =[
             data.nome_paciente,
             data.data,
             data.hora,
-            data.especialidade,
             data.valor_consulta,
             data.valor_instituicao,
             data.valor_profissional,
             data.pagamento,
             data.observacao,
+            data.profissionais,
             data.id
         ]
       return  db.query(query, values)
@@ -82,46 +97,28 @@ module.exports= {
 
     delete(id){
       return  db.query(`DELETE  FROM consultas WHERE id = $1`,[id])
-
     },
-
-    
-    findBy(filter){
-       return db.query(`
-        SELECT profissionais.*, profissionais.nome AS profissionais_name
-        FROM recipes
-        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-        WHERE recipes.title ILIKE '%${filter}%'
-        OR chefs.name ILIKE '%${filter}%'`) 
-    },
-
-    
-
-    profissionaisSelect(){
-       return db.query(`SELECT * FROM profissionais`)
-    },
-
-    profissionalEspecialidade(){
-        return db.query(`SELECT nome_paciente FROM consultas`)
+   
+    totalConsultas(){
+        return db.query(`SELECT count(*) AS total  FROM consultas`)
     },
 
     piscicologia(){
-        return db.query(`SELECT especialidade, 
-        count(consultas.especialidade) AS total_piscicologia from consultas
-        WHERE consultas.especialidade = 'Piscicologia'
-        GROUP BY especialidade`)
+        return db.query(`SELECT profissionais.especialidade ,count(consultas) AS total
+        FROM  profissionais
+        LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+        WHERE profissionais.especialidade = 'Piscicologia'
+        GROUP BY profissionais.especialidade
+        `)
     },
 
    nutricao(){
-        return db.query(`SELECT especialidade, 
-        count(consultas.especialidade) AS total_nutricao from consultas
-        WHERE consultas.especialidade = 'Nutricao'
-        GROUP BY especialidade`)
-        
-    },
-
-    totalConsultas(){
-        return db.query(`SELECT count(*) FROM consultas`)
+        return db.query(`SELECT profissionais.especialidade ,count(consultas) AS total
+        FROM  profissionais
+        LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+        WHERE profissionais.especialidade = 'Nutricao'
+        GROUP BY profissionais.especialidade
+       `)    
     }
 
 /*
