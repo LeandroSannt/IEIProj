@@ -99,8 +99,9 @@ module.exports= {
       return  db.query(`DELETE  FROM consultas WHERE id = $1`,[id])
     },
    
-    totalConsultas(){
-        return db.query(`SELECT count(*) AS total  FROM consultas`)
+    totalConsultas(filter){
+        return db.query(`SELECT count(*) AS total  FROM consultas
+        WHERE consultas.data = CURRENT_DATE  `)
     },
 
     piscicologia(){

@@ -5,21 +5,44 @@ module.exports={
     
  async index(req,res){
      
-    let results = await Consultas.all(req.body)
-    const consultas = results.rows
-    consultas.data = date(consultas.data).format
 
+    const {filter} = req.query
 
-    results = await Consultas.totalConsultas(req.body)
-    const totalConsultas = results.rows
+    console.log(req.query)
 
-    results = await Consultas.piscicologia(req.body)
-    const totalPiscicologia = results.rows
+    if (filter){
+        let results = await Consultas.all(req.body)
+        const consultas = results.rows
+        consultas.data = date(consultas.data).format
 
-    results = await Consultas.nutricao(req.body)
-    const totalNutricao = results.rows
+        results = await Consultas.totalConsultas(filter)
+        const totalConsultas = results.rows
 
-    return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
+        results = await Consultas.piscicologia(req.body)
+        const totalPiscicologia = results.rows
+    
+        results = await Consultas.nutricao(req.body)
+        const totalNutricao = results.rows
+            return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
+
+    }else{
+
+        let results = await Consultas.all(req.body)
+        const consultas = results.rows
+        consultas.data = date(consultas.data).format
+
+        results = await Consultas.totalConsultas(req.body)
+        const totalConsultas = results.rows
+
+        results = await Consultas.piscicologia(req.body)
+        const totalPiscicologia = results.rows
+    
+        results = await Consultas.nutricao(req.body)
+        const totalNutricao = results.rows
+    
+            return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
+
+        }
     },
 
 async create(req,res){
