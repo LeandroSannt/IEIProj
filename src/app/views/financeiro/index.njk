@@ -1,0 +1,118 @@
+{% extends "layout.njk" %}     
+        
+{% block title %}
+    <title>Relatorio financeiro</title>
+{% endblock title %}
+
+
+{% block cards %}
+{% endblock cards %}
+
+{% block content %}
+        <div class="container-table">
+     <section class ="cards" >
+        <div class="container-card">
+            <div class="card active">
+                <div class="card-info">
+                    <div class="logo-card">
+                        <img src="/assets/economizando-dinheiro.svg" alt="">
+                    </div>
+                    <div class="consultas-dia">
+                        <p>Valor mensal</p>
+                        <div class="mensal">
+                            <p>Instituição:</p>
+                            <span class ="green">R$: 782,50</span>
+                        </div>
+
+                        <div class="mensal">
+                            <p>Profissional:</p>
+                            <span>R$: 1570,00</span>
+                        </div>
+                    </div>
+                </div>
+                     <div class="info">
+                         <p>Valores mensais</p>
+                     </div>
+            </div>
+        </div>
+
+        <div class="container-card ">
+            <div class="card">
+                <div class="card-info">
+                    <div class="logo-card">
+                        <img src="/assets/atualizar.svg" alt="">
+                    </div>
+                    <div class="consultas-dia">
+                        <p>Pagos e devedores</p>
+                        <div class="mensal">
+                            <p>Pagos:</p>
+                            <span class ="green">5</span>
+                        </div>
+
+                        <div class="mensal">
+                            <p>Em aberto:</p>
+                            <span>7</span>
+                        </div>
+                    </div>
+                </div>
+                     <div class="info">
+                         <p>Valores mensais</p>
+                     </div>
+            </div>
+        </div>
+         
+        <div class="container-card">
+            <div class="container-card ">
+                <div class="card">
+                    <div class="card-info">
+                        <div class="logo-card">
+                            <img src="/assets/conselheiro-financeiro.svg" alt="">
+                        </div>
+                        <div class="consultas-dia">
+                            <p>Por profissional</p>
+                           <form action="">
+                            <input type="text " class ="form-check-input" placeholder="Pesquisar por nome ou especialidade">
+                            <button type="submit" class ="btn btn-info">Pesquisar</button>
+                           </form>
+                           <div class=""></div>
+                        </div>
+                    </div>
+                         <div class="info">
+                             <p>Valor total mensal de cada profissional</p>
+                         </div>
+                </div>
+            </div>
+     </section>
+     
+     <aside>
+         <div class="card-table">
+            <table class="table-container"> 
+                <thead>
+                    <tr>
+
+                        <th>Profissional</th>
+                        <th>Especialidade</th>
+                        <th>Pago ou não</th>
+                        <th>Valor <BR>profissional</th>
+                        <th>Valor <BR>instituição</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+              
+                    <tr>
+                        <td >Karolyna</td>
+                        <td>Nutrição</td>
+                        <td >PAGO</td>
+                        <td >R$ 300</td>
+                        <td >R$ 200</td>
+                        <td><a href="students/{{student.id}}">Ver</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+         </div>
+     </aside>
+    </div>
+    </div>
+    {% endblock content %}

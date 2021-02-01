@@ -4,12 +4,22 @@ var db = require("../lib/configs/db")
 
 module.exports= {
 
-     all(){
-       return db.query(`
+    all(){
+        return db.query(`
         SELECT profissionais. * 
         FROM  profissionais
         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
-        GROUP BY profissionais.id`
+        GROUP BY profissionais.id
+        `)
+    },
+
+     SumProfissional(){
+       return db.query(`
+       SELECT profissionais. * ,SUM(consultas.valor_profissional) AS valor_profissional
+       FROM  profissionais
+       LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+       WHERE consultas.pagamento = 'P'
+       GROUP BY profissionais.id`
         )
     },
 
@@ -67,7 +77,6 @@ module.exports= {
       return  db.query(`DELETE  FROM profissionais WHERE id = $1`,[id])
 
     },
-
 
 }    
     

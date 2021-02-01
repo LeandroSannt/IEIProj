@@ -4,11 +4,22 @@ var Profissionais =require("../models/profissionais")
 module.exports={
     
  async index(req,res){
-     
-    let results = await Profissionais.all(req.body)
-    const profissionais = results.rows
 
-    return res.render("profissionais/index",{profissionais}) 
+   const {filter} = req.query
+
+    if(filter){
+        let results = await Profissionais.filter(filter)
+        const profissionais = results.rows
+        return res.render("profissionais/index",{profissionais}) 
+
+    }else{
+        let results = await Profissionais.all(req.body)
+        const profissionais = results.rows
+        return res.render("profissionais/index",{profissionais}) 
+
+    }
+
+
     },
 
 async create(req,res){
