@@ -84,9 +84,88 @@
                  
             </nav>
         </header>
+        {% block fail %}
+ <div class="container-table">
+        {% endblock fail %}
+
+{% block cards %}
+     <section class ="cards" >
+        <div class="container-card ">
+            <a href="/consultas/total-consultas-do-dia">
+                <div class="card">
+                <div class="card-info">
+                    <div class="logo-card">
+                        <img src="/assets/002-psychology.svg" alt="">
+                        </div>
+                        <div class="consultas-dia">
+                            <p>Consultas do dia</p>
+                            {% for consultas in totalConsultas %}
+                                <span>{{consultas.total}}</span> 
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p>Consultas hoje</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+
+        <div class="container-card ">
+            <a href="/consultas/total-consultas-de-piscicologia">
+                <div class="card">
+                <div class="card-info">
+                    <div class="logo-card">
+                        <img src="/assets/002-psychology.svg" alt="">
+                        </div>
+                        <div class="consultas-dia">
+                            <p>Consultas do piscicologia</p>
+                            {% for piscicologia in totalPiscicologia %}
+                                <span>{{piscicologia.total}}</span> 
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p>Consultas por especialidade</p>
+                    </div>
+            </div>
+        </a>
+        </div>
+         
+        <div class="container-card">
+            <a href="/consultas/total-consultas-de-nutricao">
+                <div class="card">
+                    <div class="card-info">
+                        <div class="logo-card">
+                            <img src="/assets/001-pyramid.svg" alt="">
+                        </div>
+                        <div class="consultas-dia">
+                            <p>Consultas de nutrição</p>
+                            {% for nutricao in totalNutricao%}
+                                <span>{{nutricao.total}}</span> 
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="info">
+                        <p>Consultas por especialidade</p>   
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    {% endblock cards %}
+
+
 
     {% block content %}
+
+</div>
     {% endblock content %}
+
+
+
+
+    
 
 
         <script src="/scripts/scriptForm.js"></script>  

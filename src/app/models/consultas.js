@@ -99,9 +99,18 @@ module.exports= {
       return  db.query(`DELETE  FROM consultas WHERE id = $1`,[id])
     },
    
-    totalConsultas(filter){
+    totalConsultas(){
         return db.query(`SELECT count(*) AS total  FROM consultas
         WHERE consultas.data = CURRENT_DATE  `)
+    },
+
+    totalConsultasDia(){
+        return db.query(`
+        SELECT consultas.* ,profissionais.especialidade AS prof_esp,
+        profissionais.nome AS prof_nome
+        FROM consultas
+        LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
+        WHERE consultas.data = CURRENT_DATE`)
     },
 
     piscicologia(){
@@ -113,12 +122,34 @@ module.exports= {
         `)
     },
 
+    totalPiscicologia(){
+        return db.query(`
+        SELECT consultas.* ,profissionais.especialidade AS prof_esp,
+        profissionais.nome AS prof_nome
+        FROM consultas
+        LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
+        WHERE profissionais.especialidade = 'Piscicologia'
+        `)
+    },
+
    nutricao(){
-        return db.query(`SELECT profissionais.especialidade ,count(consultas) AS total
+        return db.query(`
+        SELECT profissionais.especialidade ,count(consultas) AS total
         FROM  profissionais
         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
         WHERE profissionais.especialidade = 'Nutricao'
         GROUP BY profissionais.especialidade
+       `)    
+    },
+
+    totalNutricao(){
+        return db.query(`       
+         SELECT consultas.* ,
+        profissionais.especialidade AS prof_esp,
+        profissionais.nome AS prof_nome
+        FROM consultas
+        LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
+        WHERE profissionais.especialidade = 'Nutricao'
        `)    
     }
 

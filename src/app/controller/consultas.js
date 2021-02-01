@@ -1,21 +1,16 @@
 var {date} =require("../lib/configs/utils")
+const { piscicologia } = require("../models/consultas")
 var Consultas =require("../models/consultas")
 
 module.exports={
     
  async index(req,res){
      
-
-    const {filter} = req.query
-
-    console.log(req.query)
-
-    if (filter){
         let results = await Consultas.all(req.body)
         const consultas = results.rows
         consultas.data = date(consultas.data).format
 
-        results = await Consultas.totalConsultas(filter)
+        results = await Consultas.totalConsultas()
         const totalConsultas = results.rows
 
         results = await Consultas.piscicologia(req.body)
@@ -24,25 +19,57 @@ module.exports={
         results = await Consultas.nutricao(req.body)
         const totalNutricao = results.rows
             return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
+    },
 
-    }else{
+ async total(req,res){
+    let results = await Consultas.totalConsultasDia(req.body)
+    const consultas = results.rows
+    consultas.data = date(consultas.data).format
 
-        let results = await Consultas.all(req.body)
-        const consultas = results.rows
-        consultas.data = date(consultas.data).format
+    results = await Consultas.totalConsultas()
+    const totalConsultas = results.rows
 
-        results = await Consultas.totalConsultas(req.body)
-        const totalConsultas = results.rows
+    results = await Consultas.piscicologia(req.body)
+    const totalPiscicologia = results.rows
 
-        results = await Consultas.piscicologia(req.body)
-        const totalPiscicologia = results.rows
-    
-        results = await Consultas.nutricao(req.body)
-        const totalNutricao = results.rows
-    
-            return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
+    results = await Consultas.nutricao(req.body)
+    const totalNutricao = results.rows
+    return res.render("consultas/consultasDia",{consultas,totalConsultas,totalPiscicologia,totalNutricao})
 
-        }
+    },
+
+async nutricao(req,res){
+    let results = await Consultas.totalNutricao(req.body)
+    const consultas = results.rows
+    consultas.data = date(consultas.data).format
+
+    results = await Consultas.totalConsultas()
+    const totalConsultas = results.rows
+
+    results = await Consultas.piscicologia(req.body)
+    const totalPiscicologia = results.rows
+
+    results = await Consultas.nutricao(req.body)
+    const totalNutricao = results.rows
+    return res.render("consultas/consultasNutricao",{consultas,totalConsultas,totalPiscicologia,totalNutricao})
+
+    },
+
+async piscicologia(req,res){
+        let results = await Consultas.totalPiscicologia(req.body)
+    const consultas = results.rows
+    consultas.data = date(consultas.data).format
+
+    results = await Consultas.totalConsultas()
+    const totalConsultas = results.rows
+
+    results = await Consultas.piscicologia(req.body)
+    const totalPiscicologia = results.rows
+
+    results = await Consultas.nutricao(req.body)
+    const totalNutricao = results.rows
+    return res.render("consultas/consultasPiscicologia",{consultas,totalConsultas,totalPiscicologia,totalNutricao})
+
     },
 
 async create(req,res){

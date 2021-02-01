@@ -11,6 +11,9 @@ routes.get("/", function (req,res){
 /*=========Consultas========*/
 
 routes.get("/consultas", consultas.index);
+routes.get("/consultas/total-consultas-do-dia", consultas.total);
+routes.get("/consultas/total-consultas-de-nutricao", consultas.nutricao);
+routes.get("/consultas/total-consultas-de-piscicologia", consultas.piscicologia);
 routes.get("/consultas/agendamento", consultas.create);
 routes.get("/consultas/detalhes/:id", consultas.show); 
 routes.get("/consultas/detalhes/:id/edit", consultas.edit); 

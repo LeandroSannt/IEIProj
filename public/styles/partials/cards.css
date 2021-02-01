@@ -1,3 +1,8 @@
+.container-card a{
+    text-decoration: none;
+    color: black;
+
+}
 .container-profissional{
     display: grid;
     grid-template-rows: 15vh auto;
