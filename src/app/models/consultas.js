@@ -30,10 +30,9 @@ module.exports= {
         )VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
         RETURNING id
     `
-        date(data.data).format
         var values= [
             data.nome_paciente,
-            data.data,
+            date(data.data).iso,
             data.hora,
             data.valor_consulta,
             data.valor_instituicao,

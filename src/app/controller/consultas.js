@@ -58,7 +58,7 @@ async nutricao(req,res){
 async piscicologia(req,res){
         let results = await Consultas.totalPiscicologia(req.body)
     const consultas = results.rows
-    consultas.data = date(consultas.data).format
+    consultas.data = date(consultas.data).iso
 
     results = await Consultas.totalConsultas()
     const totalConsultas = results.rows
@@ -87,9 +87,10 @@ async post(req,res){
         }
     }
     let results = await Consultas.create(req.body)
-    const consultaId = results.rows[0].id
+    const consultas = results.rows
+    consultas.data = date(consultas.data).iso
 
-    return res.redirect(`/consultas`)
+    return res.redirect(`/consultas`,{consultas})
     },
 
 async show(req,res){ 
