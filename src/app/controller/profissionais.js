@@ -17,9 +17,7 @@ module.exports={
         const profissionais = results.rows
         return res.render("profissionais/index",{profissionais}) 
 
-    }
-
-
+        }
     },
 
 async create(req,res){

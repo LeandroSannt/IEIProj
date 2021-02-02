@@ -6,7 +6,9 @@ module.exports= {
 
     all(){
         return db.query(`
-        SELECT profissionais. * 
+        SELECT profissionais. * ,SUM(consultas.valor_profissional) AS valor_profissional,
+        SUM(consultas.valor_instituicao) AS valor_instituicao,
+        COUNT(consultas) as total_consultas
         FROM  profissionais
         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
         GROUP BY profissionais.id
@@ -34,49 +36,21 @@ module.exports= {
          )
      },
 
-    create(data){
-    var query =`
-        INSERT INTO profissionais(
-            nome,
-            especialidade,
-            created_at
-        )VALUES($1,$2,$3)
-        RETURNING id
-    `
-
-        var values= [
-            data.nome,
-            data.especialidade,
-            date(Date.now()).iso
-        ]
-       return db.query(query,values)
-    },
-
-    find(id){
+   findBy(id){
        return db.query(`
-        SELECT  * FROM profissionais WHERE id = $1`,[id])
-        
-    },
+       SELECT consultas. * , profissionais.nome
+       FROM consultas
+       LEFT JOIN profissionais ON (consultas.profissional_id = profissionais.id)
+       WHERE profissional_id = $1`,[id])
+   },
 
-    update(data){
-        var query = `
-        UPDATE profissionais SET
-            nome = ($1),
-            especialidade = ($2)
-            WHERE id = $3
-            `
-        var values =[
-            data.nome,
-            data.especialidade,
-            data.id
-        ]
-      return  db.query(query, values)
-    },  
-
-    delete(id){
-      return  db.query(`DELETE  FROM profissionais WHERE id = $1`,[id])
-
-    },
-
+   totalValores(){
+       return db.query(`
+       SELECT SUM(consultas.valor_profissional) AS valor_profissional,
+       SUM(consultas.valor_instituicao) AS valor_instituicao
+       FROM  profissionais
+       LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+     `)
+   }
 }    
     

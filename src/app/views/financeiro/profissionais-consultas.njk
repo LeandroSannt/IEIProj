@@ -18,17 +18,16 @@
                         <img src="/assets/economizando-dinheiro.svg" alt="">
                     </div>
                     <div class="consultas-dia">
-                        {% for valores in totalValores %}
                         <p>Valor mensal</p>
                         <div class="mensal">
                             <p>Instituição:</p>
-                            <span class ="green">R$: {{valores.valor_instituicao}}</span>
+                            <span class ="green">R$: 782,50</span>
                         </div>
+
                         <div class="mensal">
                             <p>Profissional:</p>
-                            <span>R$: {{valores.valor_profissional}}</span>
+                            <span>R$: 1570,00</span>
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
                      <div class="info">
@@ -93,8 +92,8 @@
 
                         <th>Profissional</th>
                         <th>Especialidade</th>
-                        <th>Valor <BR>instituição</th>
                         <th>Valor <BR>profissional</th>
+                        <th>Valor <BR>instituição</th>
                         <th>Total de consultas</th>
 
                         
@@ -106,10 +105,10 @@
                     <tr>
                         <td >{{fin.nome}}</td>
                         <td >{{fin.especialidade}}</td>
-                        <td >R$ {{fin.valor_instituicao}}</td>
                         <td >R$ {{fin.valor_profissional}}</td>
+                        <td >R$ {{fin.valor_instituicao}}</td>
                         <td >{{fin.total_consultas}}</td>
-                        <td><a href="financeiro/profissional/{{fin.id}}">Ver</a></td>
+                        <td><a href="students/{{fin.id}}">Ver</a></td>
                     </tr>
                         {% endfor %}
 
