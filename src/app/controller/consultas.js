@@ -90,7 +90,7 @@ async post(req,res){
     const consultas = results.rows
     consultas.data = date(consultas.data).iso
 
-    return res.redirect(`/consultas`,{consultas})
+    return res.render(`consultas/index`,{consultas})
     },
 
 async show(req,res){ 

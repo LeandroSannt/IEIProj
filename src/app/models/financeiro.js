@@ -51,6 +51,41 @@ module.exports= {
        FROM  profissionais
        LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
      `)
-   }
+   },
+
+   selectPagos(){
+       return db.query(`
+       SELECT consultas.*,profissionais.nome AS profissional_nome,
+       profissionais.especialidade AS profissional_especialidade
+       FROM consultas
+       LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
+       WHERE consultas.pagamento = 'P'`)  
+   },
+
+   totalPagos(){
+       return db.query(`
+       SELECT COUNT(consultas.pagamento) AS total_pagos
+       FROM consultas
+       WHERE consultas.pagamento = 'P'
+`)
+   },
+
+   selectNpagos(){
+    return db.query(`
+    SELECT consultas.*,profissionais.nome AS profissional_nome,
+    profissionais.especialidade AS profissional_especialidade
+    FROM consultas
+    LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
+    WHERE consultas.pagamento = 'NP'`)  
+
+   },
+
+   totalNpagos(){
+    return db.query(`
+    SELECT COUNT(consultas.pagamento) AS total_n_pagos
+    FROM consultas
+    WHERE consultas.pagamento = 'NP'
+`)
+}
 }    
     

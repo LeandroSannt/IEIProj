@@ -47,12 +47,16 @@
                         <p>Pagos e devedores</p>
                         <div class="mensal">
                             <p>Pagos:</p>
-                            <span class ="green">5</span>
+                            {% for pagos in totalPagos %}
+                            <span class ="green">{{pagos.total_pagos}}</span>
+                            {% endfor %}
                         </div>
 
                         <div class="mensal">
                             <p>Em aberto:</p>
-                            <span>7</span>
+                            {% for NaoPagos in totalNpagos %}
+                            <span >{{NaoPagos.total_n_pagos}}</span>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -72,7 +76,7 @@
                         <div class="consultas-dia">
                             <p>Por profissional</p>
                            <form action="">
-                            <input type="text " class ="form-check-input" placeholder="Pesquisar por nome ou especialidade">
+                            <input type="text " name="filter" class ="form-check-input" placeholder="Pesquisar por nome ou especialidade">
                             <button type="submit" class ="btn btn-info">Pesquisar</button>
                            </form>
                            <div class=""></div>
