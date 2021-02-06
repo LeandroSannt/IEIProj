@@ -23,12 +23,10 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
     animation-delay: 0.2s;
-
-   
 }
 
 .filter-professional{
-height: 9rem;
+height: 15rem;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -42,6 +40,13 @@ animation-delay: 0.2s;
 
 .filter-professional h1{
 font-size: 4rem;
+}
+
+.title-profissional{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-table{

@@ -94,14 +94,12 @@
             <table class="table-container"> 
                 <thead>
                     <tr>
-
                         <th>Profissional</th>
                         <th>Especialidade</th>
                         <th>Valor <BR>instituição</th>
                         <th>Valor <BR>profissional</th>
                         <th>Total de consultas</th>
-
-                        
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -113,10 +111,9 @@
                         <td >R$ {{fin.valor_instituicao}}</td>
                         <td >R$ {{fin.valor_profissional}}</td>
                         <td >{{fin.total_consultas}}</td>
-                        <td><a href="financeiro/profissional/{{fin.id}}">Ver</a></td>
+                        <td><a href="/financeiro/profissional-consultas/{{fin.id}}">Ver</a></td>
                     </tr>
                         {% endfor %}
-
                 </tbody>
             </table>
          </div>

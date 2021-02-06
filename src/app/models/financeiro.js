@@ -15,6 +15,20 @@ module.exports= {
         `)
     },
 
+    filter(filter){
+        return db.query(`
+         SELECT profissionais. * ,count(consultas) AS total_consultas,
+         SUM(consultas.valor_profissional) AS valor_profissional,
+         SUM(consultas.valor_instituicao) AS valor_instituicao
+         FROM  profissionais
+         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+         WHERE profissionais.nome ILIKE '%${filter}%'
+         OR profissionais.especialidade ILIKE '%${filter}%'
+         GROUP BY profissionais.id`
+         )
+     },
+
+
      SumProfissional(){
        return db.query(`
        SELECT profissionais. * ,SUM(consultas.valor_profissional) AS valor_profissional
@@ -25,24 +39,20 @@ module.exports= {
         )
     },
 
-    filter(filter){
-        return db.query(`
-         SELECT profissionais. * ,count(consultas) AS total_consultas
-         FROM  profissionais
-         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
-         WHERE profissionais.nome ILIKE '%${filter}%'
-         OR profissionais.especialidade ILIKE '%${filter}%'
-         GROUP BY profissionais.id`
-         )
-     },
 
-   findBy(id){
-       return db.query(`
-       SELECT consultas. * , profissionais.nome
-       FROM consultas
-       LEFT JOIN profissionais ON (consultas.profissional_id = profissionais.id)
-       WHERE profissional_id = $1`,[id])
-   },
+   find(id){
+    return db.query(`
+     SELECT  * FROM profissionais WHERE id = $1`,[id])
+ },
+
+findConsultas(id){
+    return db.query(`
+    SELECT consultas. *,profissionais.*
+    FROM consultas
+    LEFT JOIN profissionais ON (consultas.profissional_id = profissionais.id)
+    WHERE profissional_id = $1
+    `,[id])
+},
 
    totalValores(){
        return db.query(`
@@ -88,4 +98,4 @@ module.exports= {
 `)
 }
 }    
-    
+        

@@ -36,8 +36,7 @@ routes.delete("/profissionais", profissionais.delete);
 
 /*==========Financeiro==========*/ 
 routes.get("/financeiro", financeiro.index); 
-routes.get("/financeiro/profissional/:id", financeiro.index); 
-
+routes.get("/financeiro/profissional-consultas/:id", financeiro.financeiroConsultas); 
 
 routes.get('not-found', function(req, res) {
     res.render("/views/not-found");
