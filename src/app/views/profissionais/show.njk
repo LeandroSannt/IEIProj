@@ -15,7 +15,7 @@
 
 {% block content %}
 
-    <div class="container-gender">
+ <div class="container-profissional">
 
      <section class ="gender" >
         <H1>Perfil do profissional</H1>
@@ -23,28 +23,24 @@
      
      <aside>
          <div class="card-table">
+                    <h3>Detalhes</h3>
                <div class="details">
-            <h3>Detalhes</h3>
+                    <div class="item">
+                        <div>Nome do paciente</div>
+                        <div>{{profissional.nome}}</div>
+                    </div>
 
-            <div class="item">
-                <div>Nome do paciente</div>
-                <div>{{profissional.nome}}</div>
-            </div>
-
-            <div class="item">
-                <div>Especialidade</div>
-                <div>{{profissional.especialidade}}</div>
-            </div>
+                    <div class="item">
+                        <div>Especialidade</div>
+                        <div>{{profissional.especialidade}}</div>
+                    </div>
+                </div>
 
             <a href="/profissionais/detalhes/{{profissional.id}}/edit" class="buttom">Editar</a>
-
         </div>
-
-    </section>
-             </div>
      </aside>
      
-    </div> 
+ </div> 
 
     {% block scripts %}
         <script src="/scripts/scriptForm.js"></script>

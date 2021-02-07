@@ -15,14 +15,14 @@
 {% block content %}
 
 
-<div class="container-tprofissional">
-     <section class ="filter-professional" >
-        <H1>Profissionais</H1>
-     </section>
+<div class="container-profissional">
+        <section class ="gender" >
+            <H1>Profissionais</H1>
+        </section>
      
      <aside>
          <div class="card-table">
-            <form action="/profissionais" method ="GET">
+            <form class="form-profissional" action="/profissionais" method ="GET">
                 <input type="text" name ="filter" class ="form-check-input" placeholder="Pesquisar por nome ou especialidade">
                 <button type="submit" class ="btn btn-info">Pesquisar</button>
             </form>

@@ -1,15 +1,13 @@
-
 aside{
     height: auto;
     display: flex;
-    align-items: center;
     justify-content: center;
 
 }
 
 aside .card-table{
     width: 95%;
-    min-height: 90%;
+    min-height: 70%;
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 1px 1px 15px -10px black;
@@ -19,6 +17,7 @@ aside .card-table{
     animation-timing-function: ease-out;
     animation-delay: 0.2s;
     opacity: 0;
+    
 }
 
 aside .card-table table{
@@ -44,6 +43,7 @@ td{
     font-size: 1.8rem;
     padding: 16px 0;
     height: 70px;
+    color: #838282fb ;
 }
 
 th{

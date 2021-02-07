@@ -19,25 +19,21 @@
 
 {% block content %}
 
-    <div class="container-gender">
-
-        
-
-     <section class ="gender" >
-        <H1>Agendamento de consultas</H1>
-     </section>
+    <div class="container-profissional">
+        <section class ="gender" >
+            <H1>Agendamento de consultas</H1>
+        </section>
      
-     <aside>
-         <div class="card-table">
-                <form  method ="POST" action="/consultas">
-                         <div class="details">
-                        {%include  "consultas/fields.njk"%}
-                         <button class="enviar" type="submit">Enviar</button>
-                        </div>
-                </form>
-             </div>
-     </aside>
-     
+        <aside>
+            <div class="card-table">
+                    <form  method ="POST" action="/consultas">
+                            <div class="details">
+                            {%include  "consultas/fields.njk"%}
+                            <button class="enviar" type="submit">Enviar</button>
+                            </div>
+                    </form>
+                </div>
+        </aside>    
     </div> 
 
 {% endblock content %}

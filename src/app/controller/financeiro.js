@@ -60,7 +60,7 @@ async financeiroConsultas(req,res){
 
     results = await Financeiro.findConsultas(req.params.id)
     consultas =results.rows
-    consultas.data = date(consulta.data)
+    consultas.data = date(consultas.data)
     
     if(!financeiro) return res.send("profissional não encontrada")
 
