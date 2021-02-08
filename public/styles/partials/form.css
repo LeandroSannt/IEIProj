@@ -9,8 +9,7 @@
 }
 
 .form-profissional{
-    margin: 20px;
-    
+    margin: 20px;  
 }
 
 .form-profissional button{
@@ -32,12 +31,11 @@ h1{
     grid-template-columns: 150px 1fr;
 }
 
-
 .details {
     padding: 18px  32px 18px 32px;
     min-height: 65vh;
-    
 }
+
 .put{
     position: relative;
 }
@@ -123,13 +121,13 @@ form select {
     font-size: 18px;
     padding: 6px;
     border-radius: 5px;
-    
 }
 
 form input[type="radio"] {
     width: initial;
     font-weight: normal;
 }
+
 form textarea,
 form input::placeholder {
     padding: 10px;
@@ -148,7 +146,6 @@ form input::placeholder {
     font-weight: bold;
     opacity: 1;
     cursor: pointer;   
-   
 }
 
 .buttom {
@@ -177,7 +174,6 @@ form input::placeholder {
 
     background-color: rgba(207, 27, 27, 0.781) !important;
 }
-
 
 button[type="submit"], .buttom,
 .card .put .delete:hover{

@@ -20,6 +20,7 @@ module.exports= {
          LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
          WHERE profissionais.nome ILIKE '%${filter}%'
          OR profissionais.especialidade ILIKE '%${filter}%'
+         OR profissionais.especialidade ILIKE '%${filter}%'
          GROUP BY profissionais.id`
          )
      },

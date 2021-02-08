@@ -10,9 +10,10 @@ header{
     display: grid;
     grid-template-rows: 30vh 70vh;
     min-width: 200px;
+    width: 15vw;
+    position: fixed;
     height: 100%;
     background-color: white;
-    position: relative;
     box-shadow: 1px -10px 5px black;
     animation-name: up;
     animation-duration: 700ms;
@@ -20,6 +21,14 @@ header{
     animation-timing-function: ease-out;
     animation-delay: 0.2s;
     opacity: 0;
+}
+
+.pareativos{
+    display: grid;
+    min-width: 200px;
+    width: 20vw;
+    height: 100%;
+
 }
 
 header .info-personal{

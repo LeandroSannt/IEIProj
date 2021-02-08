@@ -12,18 +12,19 @@
 
 {% block content %}
 
-<div class="container-tprofissional">
-     <section class ="filter-professional" >
-      <span class ="title-profissional">    
-          <H1>{{profissional.nome}}</H1>
-       <br> 
-         <h3>{{profissional.especialidade}}</h3>
-       </span>
+<div class="container-profissional">
+    <section class ="gender" >
+        <section class ="filter-professional gender" >
+            <span class ="title-profissional">    
+                <H1>{{profissional.nome}}</H1>
+                <br> 
+                <h3>{{profissional.especialidade}}</h3>
+            </span>
+        </section>
      </section>
      
      <aside>
          <div class="card-table">
-         
             <table class="table-container"> 
                 <thead>
                     <tr>
@@ -45,7 +46,6 @@
                         {% endfor %}
                     </tbody>
                 </table>
-
          </div>
      </aside>
 </div>

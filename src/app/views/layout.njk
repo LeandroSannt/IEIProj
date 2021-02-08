@@ -26,6 +26,7 @@
 </head>
 <body>
 <div class="container-global">
+    <div class="pareativos">
         <header>
             <div class="info-personal">
                 <img src="/assets/logo-instituto.png" alt="logo do instituto">
@@ -84,6 +85,7 @@
                  
             </nav>
         </header>
+    </div>    
         {% block fail %}
  <div class="container-table">
         {% endblock fail %}
@@ -95,7 +97,7 @@
                 <div class="card">
                 <div class="card-info">
                     <div class="logo-card">
-                        <img src="/assets/002-psychology.svg" alt="">
+                        <img src="/assets/006-calendario.svg" alt="">
                         </div>
                         <div class="consultas-dia">
                             <p>Consultas do dia</p>
@@ -119,7 +121,7 @@
                         <img src="/assets/002-psychology.svg" alt="">
                         </div>
                         <div class="consultas-dia">
-                            <p>Consultas do piscicologia</p>
+                            <p>Consultas de pscicologia</p>
                             {% for piscicologia in totalPiscicologia %}
                                 <span>{{piscicologia.total}}</span> 
                             {% endfor %}
@@ -155,23 +157,13 @@
     </section>
     {% endblock cards %}
 
-
-
     {% block content %}
 
 </div>
     {% endblock content %}
 
-
-
-
-    
-
-
         <script src="/scripts/scriptForm.js"></script>  
         <script src="/scripts/dataFormat.js"></script>  
-
-
 
         <script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="//assets.locaweb.com.br/locastyle/2.0.6/javascripts/locastyle.js"></script>

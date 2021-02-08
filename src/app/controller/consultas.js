@@ -6,12 +6,12 @@ module.exports={
     
  async index(req,res){
 
-    const {filter} = req.params
+    const {filter} = req.query
 
     if(filter){
         let results = await Consultas.filter(filter)
-        const consultasFilter = results.rows
-        consultasFilter.data = date(consultasFilter.data).format
+        const consultas = results.rows
+        consultas.data = date(consultas.data).format
 
         results = await Consultas.totalConsultas()
         const totalConsultas = results.rows
@@ -21,7 +21,7 @@ module.exports={
     
         results = await Consultas.nutricao(req.body)
         const totalNutricao = results.rows
-            return res.render("consultas/index",{consultasFilter,totalConsultas,totalPiscicologia,totalNutricao}) 
+            return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
 
     }else{
 

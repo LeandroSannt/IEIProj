@@ -15,15 +15,16 @@ module.exports= {
     },
 
     filter(filter){
-     return db.query(`
-     SELECT consultas.* ,profissionais.especialidade AS prof_esp,
-     profissionais.nome AS prof_nome
-     FROM consultas
-     LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
-     WHERE consultas.nome_paciente ILIKE '%${filter}%'
-     OR profissionais.especialidade ILIKE '%${filter}%'
-     ORDER BY hora ASC`)   
-    },
+        return db.query(`
+        SELECT consultas.* ,profissionais.especialidade AS prof_esp,
+        profissionais.nome AS prof_nome
+        FROM consultas
+        LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
+        WHERE consultas.nome_paciente ILIKE '%${filter}%'
+        OR profissionais.nome ILIKE '%${filter}%'
+        ORDER BY hora ASC`
+         )
+     },
 
     create(data){
     var query =`
