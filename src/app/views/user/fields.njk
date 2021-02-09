@@ -2,7 +2,7 @@
 <div class="item">
     <div>Nome Completo</div>
     <div>
-        <input type="text" name="nome_paciente" placeholder="Nome completo" value="{{user.nome}}">
+        <input type="text" name="nome" placeholder="Nome completo" value="{{user.nome}}">
     </div>
 </div>
 
@@ -16,14 +16,14 @@
     <div class="item">
         <div>Senha</div>
         <div>
-            <input type="password" name="password" placeholder="Escolha uma senha" value="{{user.password}}">
+            <input type="password" name="senha" placeholder="Escolha uma senha" value="{{user.senha}}">
         </div>
     </div>
 {%if not user.id%}
     <div class="item">
         <div>Repetir Senha</div>
         <div>
-            <input type="password" name="passwordRepeat" placeholder="Repita a senha">
+            <input type="password" name="senhaRepeat" placeholder="Repita a senha">
         </div>
     </div>
 {%endif%}

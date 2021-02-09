@@ -7,7 +7,7 @@ async function post(req,res,next){
         return res.send("dados faltando")
         }
     }
-    let { email, cpf_cnpj, password, passwordRepeat} = req.body
+    let { email, cpf_cnpj, senha, senhaRepeat} = req.body
     cpf_cnpj = cpf_cnpj.replace(/\D/g,"")
     
     const user = await User.findOne({
@@ -19,8 +19,8 @@ async function post(req,res,next){
         error: "Usuario ja cadastrado."
     })
     
-    if(password != passwordRepeat)
-        return res.send ("Password mismatch")
+    if(senha != senhaRepeat)
+        return res.send ("senha mismatch")
         next()
 }
 
