@@ -1,0 +1,42 @@
+{% extends "layout.njk" %}
+
+{% block boostrap %}
+{% endblock boostrap %}
+
+    <link rel="stylesheet" href="/styles/partials/form.css">
+
+{% block title %}
+    <title>Agendar consultas</title>
+{% endblock title %}
+
+{% block fail %}
+{% endblock fail %}
+
+{% block cards %}
+{% endblock cards %}
+
+{% block content %}
+
+    <div class="container-profissional">
+        <section class ="gender" >
+            <H1>Cadastro</H1>
+        </section>
+     
+        <aside>
+            <div class="card-table">
+                    <form  method ="POST" action="/user/registro">
+                            <div class="details">
+                            {%include  "user/fields.njk"%}
+                            <button class="enviar" type="submit">Salvar</button>
+                            </div>
+                    </form>
+                </div>
+        </aside>    
+    </div> 
+
+{% endblock content %}
+
+        
+        <script src="/scripts/scriptForm.js"></script>
+
+

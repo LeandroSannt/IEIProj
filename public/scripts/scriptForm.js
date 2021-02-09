@@ -7,7 +7,14 @@ function mult(value){
  
  }
 
- 
+ const formDelete= document.querySelector("#form-delete")
+        formDelete.addEventListener("submit",function(event){
+            const confirmation = confirm("Deseja deletar a receita ?")
+            if(!confirmation){
+                event.preventDefault()
+        }
+    })
+
 /*
  const currentPage =location.pathname
 const menuItems = document.querySelectorAll("header  a ")
@@ -19,10 +26,3 @@ for(item of menuItems){
 }
 }*/
 
-const formDelete= document.querySelector("#form-delete")
-        formDelete.addEventListener("submit",function(event){
-            const confirmation = confirm("Deseja deletar a receita ?")
-            if(!confirmation){
-                event.preventDefault()
-        }
-    })

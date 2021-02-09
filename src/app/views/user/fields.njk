@@ -1,0 +1,38 @@
+
+<div class="item">
+    <div>Nome Completo</div>
+    <div>
+        <input type="text" name="nome_paciente" placeholder="Nome completo" value="{{user.nome}}">
+    </div>
+</div>
+
+<div class="item">
+    <div>Email</div>
+    <div>
+        <input type="email" name="email" value="{{user.email}}">
+    </div>
+</div>
+
+    <div class="item">
+        <div>Senha</div>
+        <div>
+            <input type="password" name="password" placeholder="Escolha uma senha" value="{{user.password}}">
+        </div>
+    </div>
+{%if not user.id%}
+    <div class="item">
+        <div>Repetir Senha</div>
+        <div>
+            <input type="password" name="passwordRepeat" placeholder="Repita a senha">
+        </div>
+    </div>
+{%endif%}
+
+<div class="item">
+    <div>Cpf ou Cnpj</div>
+    <div>
+        <input type="text" name="cpf_cnpj"  placeholder="Valor total da consulta" onkeydown="Mask.apply(this, 'cpfCnpj')" >
+    </div>
+</div>
+
+

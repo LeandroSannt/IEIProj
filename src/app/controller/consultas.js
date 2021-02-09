@@ -39,21 +39,7 @@ module.exports={
         const totalNutricao = results.rows
             return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
 
-    }
-     
-        let results = await Consultas.all(req.body)
-        const consultas = results.rows
-        consultas.data = date(consultas.data).format
-
-        results = await Consultas.totalConsultas()
-        const totalConsultas = results.rows
-
-        results = await Consultas.piscicologia(req.body)
-        const totalPiscicologia = results.rows
-    
-        results = await Consultas.nutricao(req.body)
-        const totalNutricao = results.rows
-            return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
+        }
     },
 
  async total(req,res){
@@ -115,7 +101,7 @@ async create(req,res){
     },
     
 async post(req,res){
-        const keys =Object.keys(req.body)
+    const keys =Object.keys(req.body)
     for(key of keys){
         if(req.body[key] == "" && key != "observacao"){
         return res.send("dados faltando")
