@@ -16,7 +16,15 @@
     <div class="item">
         <div>Senha</div>
         <div>
-            <input type="password" name="senha" placeholder="Escolha uma senha" value="{{user.senha}}">
+            <input 
+            type="password" 
+            name="senha"
+            {%if not user.id%}
+            placeholder="Escolha uma senha segura" 
+            {%else%}
+            placeholder="Digite sua senha para atualizar seu cadastro"
+            {%endif%}
+            >
         </div>
     </div>
 {%if not user.id%}
@@ -31,7 +39,7 @@
 <div class="item">
     <div>Cpf ou Cnpj</div>
     <div>
-        <input type="text" name="cpf_cnpj"  placeholder="Valor total da consulta" onkeydown="Mask.apply(this, 'cpfCnpj')" >
+        <input type="text" name="cpf_cnpj"  placeholder="Valor total da consulta" onkeydown="Mask.apply(this, 'cpfCnpj')" value="{{user.cpf_cnpj}}" >
     </div>
 </div>
 

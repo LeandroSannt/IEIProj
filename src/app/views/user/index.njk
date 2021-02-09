@@ -1,0 +1,43 @@
+{% extends "layout.njk" %}
+
+<link rel="stylesheet" href="/styles/partials/form.css">
+    
+{% block title %}
+    <title>Usuario: {{user.nome}}</title>
+{% endblock title %}
+
+{% block fail %}
+{% endblock fail %}
+
+{% block cards %}
+{% endblock cards %}
+
+{% block content %}
+
+<div class="container-profissional">
+
+     <section class ="gender" >
+        <H1>Alterando dados</H1>
+     </section>
+     
+     <aside>
+         <div class="card-table">
+                <form  method="POST" action="/user?_method=PUT">
+                         <div class="details">
+                        {%include  "user/fields.njk"%}
+                         <button class="enviar" type="submit">Salvar</button>
+                        <button class =delete type="submit" form ="form-delete">Deletar</button> 
+                        </div>
+                        <input type="hidden" name="id"value={{user.id}}> 
+
+                </form>
+                       
+                 <form id="form-delete"   method="POST" action="/user?_method=DELETE">
+                        <input type="hidden" name="id"value={{user.id}}> 
+                </form>
+            </div>
+     </aside>
+</div> 
+
+
+{% endblock content %}

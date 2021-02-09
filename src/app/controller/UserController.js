@@ -1,13 +1,19 @@
 var {date} =require("../lib/configs/utils")
 var User =require("../models/User")
+const {formatCpfCnpj} = require("../lib/configs/utils")
 
 module.exports = {
     registerForm(req,res){
+
         return res.render("user/registro")
     },
 
-    show(req,res){
-      return res.send("ok cadastrado")  
+  async show(req,res){
+    const {user} = req
+
+    user.cpf_cnpj = formatCpfCnpj(user.cpf_cnpj)
+
+    return res.render("user/index", {user})  
     },
 
   async  post(req,res){
@@ -15,7 +21,31 @@ module.exports = {
 
       req.session.userId = userId
 
-        return res.redirect("/users/registro")
+        return res.redirect("/user/registro")
 
-    }
+    },
+
+  async update(req,res){
+    try{
+      const {user} = req
+      let { nome, email, cpf_cnpj} = req.body
+      cpf_cnpj = cpf_cnpj.replace(/\D/g,"")
+
+      await User.update(user.id,{
+        nome,
+        email,
+        cpf_cnpj
+      })
+      return res.render("user/index",{
+        user:req.body,
+        success:"Conta atualizada com sucesso"
+      })
+
+    }catch(err){
+      console.error(err)
+      return res.render("user/index",{
+        error:"Algum error aconteceu"
+      })
+      }
+    },
 }
