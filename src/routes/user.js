@@ -6,9 +6,9 @@ const UserController = require("../app/controller/UserController")
 const Validator = require("../app/validators/user")
 
   //login
-  //routes.get("/login",SessionController.loginForm)
+  routes.get("/login",SessionController.loginForm)
   //routes.post("/login",SessionController.login)
-  //routes.post("/logout",SessionController.logout)
+  routes.post("/logout",SessionController.logout)
 
   //reset poassword
 

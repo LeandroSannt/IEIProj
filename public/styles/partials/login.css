@@ -1,0 +1,16 @@
+.login-container{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+
+    min-width: 40rem;
+    width: 50rem;
+}
+
+.login form{
+
+}

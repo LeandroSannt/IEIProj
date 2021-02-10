@@ -66,15 +66,21 @@
                             </span>   
                         </li>
                     </a>
-                    <a href="#">
-                        <li>
-                            <span>
-                                <img src="/assets/sair.svg" alt="">
-                                <p>Sair</p>
-                            </span>   
-                        </li>
-                    </a>
-                </ul>  
+                    {%if user%}
+                <a href="#">
+                    <li class="/accounts">  
+                        <ul class="submenu">
+                            <a href="/user">Configuraçoes</a>
+                                <li>
+                                    <form action="/user/logout" method="POST">
+                                        <button>Sair</button>
+                                    </form>
+                                </li>
+                        </ul>                          
+                    </li>
+                </a>
+                    {%endif%}
+            </ul>  
             </nav>
         </header>
     </div>    
