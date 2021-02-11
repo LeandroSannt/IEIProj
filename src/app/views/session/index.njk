@@ -1,40 +1,55 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-br">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/global.css">
     <link rel="stylesheet" href="/styles/partials/login.css">
-    <link rel="stylesheet" href="/styles/partials/form.css">
-
-        <title>Login</title>
+    <title>Login</title>
 </head>
+
 <body>
-    <div class="login-container">
-        <div class="login">
-                <h3>Entrar</h3>
-                <form  method="POST" action="/user/login">
-                        <div class="details">
-                            {%include  "session/fields.njk"%}
-                            <button class="enviar" type="submit">Entrar</button>
-                        <ul>
-                            <li>
-                                <a href="/user/registro">Registre-se</a>
-                            </li>
-                            <li>
-                                <a href="/user/forgot-password">Esqueci a senha</a>
-                            </li>
-                        </ul>    
-                        </div>
-                        <input type="hidden" name="id"value={{user.id}}>
-
-                </form>   
+    <section class="section-form">
+        <div class="user-img">
+            <i class="fas fa-user-alt"></i>
         </div>
-
-</div> 
-    
+        <div class="quote">
+            <h1>Login</h1>
+        </div>
+         <form  method="POST" action="#" id="form" class="form" name ="login">
+             <label for="email">
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                <input type="email" name="email" value="{{user.email}}" placeholder= "Digite seu email" id ="email">
+                </div>
+            </label>
+            <div class="error-msg">
+                <p> * Por favor, preencha o campo corretamente</p>
+            </div>
+            <label for="senha">
+                <div class="form-group">
+                    <i class="fas fa-key"></i>
+                    <input type="password"minlength="4" name="senha"placeholder="Digite sua senha" id="senha" >
+                <div>
+            </label>
+            </div>
+                <div class="view">
+                    <i class="fas fa-eye-slash"></i>
+                </div>
+            </div>
+            <div class="error-msg">
+                <p> * Por favor, preencha o campo corretamente</p>
+            </div>
+            <div class="confirmations">
+                <a href="/user/forgot-password">Cadastrar Usuario</a> 
+                <a href="/user/forgot-password">Esqueci a senha</a>
+            </div>
+            <button type="submit" class="btn btn-login">Login</a>
+        </form>
+    </section> 
+    <script src="https://kit.fontawesome.com/4783fe1c33.js" crossorigin="anonymous"></script>
+    <script src="\scripts\script.js"></script>
 </body>
+
 </html>
 
