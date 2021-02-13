@@ -2,7 +2,9 @@ const express = require("express")
 const routes =express.Router()
 const financeiro = require("../app/controller/financeiro")
 
-routes.get("/", financeiro.index); 
-routes.get("/profissional-consultas/:id", financeiro.financeiroConsultas); 
+const { onlyUser} = require("../app/middlewares/session")
+
+routes.get("/", onlyUser,financeiro.index); 
+routes.get("/profissional-consultas/:id", onlyUser,financeiro.financeiroConsultas); 
 
 module.exports = routes

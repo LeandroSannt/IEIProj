@@ -1,42 +1,63 @@
-{% extends "layout.njk" %}
 
-{% block boostrap %}
-{% endblock boostrap %}
 
-    <link rel="stylesheet" href="/styles/partials/form.css">
+<!DOCTYPE html>
+<html lang="PT-br">
 
-{% block title %}
-    <title>Agendar consultas</title>
-{% endblock title %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/partials/login.css">
+    <link rel="stylesheet" href="/styles/partials/messages.css">
+    <title>Login</title>
+</head>
 
-{% block fail %}
-{% endblock fail %}
+<body>
+    <section class="section-form">
+    {%include "parts/messages.njk"%}
+        <div class="user-img">
+            <i class="fas fa-user-alt"></i>
+        </div>
+        <div class="quote">
+            <h1>Cadastrar usuario</h1>
+        </div>
+        <form  method ="POST" action="/user/registro">
 
-{% block cards %}
-{% endblock cards %}
-
-{% block content %}
-
-    <div class="container-profissional">
-        <section class ="gender" >
-            <H1>Cadastro</H1>
-        </section>
-     
-        <aside>
-            <div class="card-table">
-                    <form  method ="POST" action="/user/registro">
-                            <div class="details">
-                            {%include  "user/fields.njk"%}
-                            <button class="enviar" type="submit">Salvar</button>
-                            </div>
-                    </form>
+             <label for="nome">
+                <div class="form-group">
+                        <input type="text" name="nome" placeholder= "Digite seu nome " id ="nome" value="{{user.nome}}"required>
                 </div>
-        </aside>    
-    </div> 
+            </label>
 
-{% endblock content %}
+             <label for="email">
+                <div class="form-group">
+                        <input type="email" name="email" placeholder= "Digite seu email" id ="email" value="{{user.email}}"required>
+                </div>
+            </label>
 
-        
-        <script src="/scripts/scriptForm.js"></script>
+            <label for="cpf_cnpj">
+                <div class="form-group">
+                    <input type="text" name="cpf_cnpj"  placeholder="cpf ou cnpj" onkeydown="Mask.apply(this, 'cpfCnpj')" value="{{user.cpf_cnpj}}", id="cpf_cnpj" required>
+                    </div>
+            </label>
 
+             <label for="senha">
+                <div class="form-group">
+                        <input type="password" name="senha" placeholder= "Digite uma senha" id ="senha"required>
+                </div>
+            </label>
 
+             <label for="repeatSenha">
+                <div class="form-group">
+                        <input type="password" name="senhaRepeat" placeholder= "Repita sua senha" id ="repeatSenha"required>
+                </div>
+            </label>
+            
+            <button type="submit" class="btn btn-login">Salvar</a>
+        </form>
+    </section> 
+    <script src="https://kit.fontawesome.com/4783fe1c33.js" crossorigin="anonymous"></script>
+    <script src="\scripts\script.js"></script>
+    <script src="\scripts\mask.js"></script>
+</body>
+
+</html>

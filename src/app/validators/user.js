@@ -32,19 +32,22 @@ async function post(req,res,next){
     }
 
     let { email, cpf_cnpj, senha, senhaRepeat} = req.body
-    cpf_cnpj = cpf_cnpj.replace(/\D/g,"")
+    //cpf_cnpj = cpf_cnpj.replace(/\D/g,"")
     
     const user = await User.findOne({
         where:{email},
         or:{cpf_cnpj}
     })
+
     if(user) return res.render("user/registro",{
         user:req.body,
         error: "Usuario ja cadastrado."
     })
     
-    if(senha != senhaRepeat)
-        return res.send ("senha mismatch")
+    if(senha != senhaRepeat) return res.render ("user/registro",{
+            user:req.body,
+            error:"Senha e repetição de senha estão diferentes "
+        })
         next()
 }
 async function update(req,res,next){

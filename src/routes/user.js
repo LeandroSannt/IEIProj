@@ -6,6 +6,9 @@ const UserController = require("../app/controller/UserController")
 const UserValidator = require("../app/validators/user")
 const SessionValidator = require("../app/validators/session")
 
+const { onlyUser} = require("../app/middlewares/session")
+
+
   //login
   routes.get("/login",SessionController.loginForm)
   routes.post("/login",SessionValidator.login,SessionController.login)
@@ -23,7 +26,7 @@ const SessionValidator = require("../app/validators/session")
 routes.get('/registro', UserController.registerForm)
 routes.post('/registro',UserValidator.post, UserController.post)
 
-routes.get('/index',UserValidator.show, UserController.show)
+routes.get('/index',onlyUser,UserValidator.show, UserController.show)
 routes.put('/',UserValidator.update, UserController.update)
 //routes.delete('/', UserController.delete)
 

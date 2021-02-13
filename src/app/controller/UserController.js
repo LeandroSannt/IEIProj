@@ -1,10 +1,8 @@
-var {date} =require("../lib/configs/utils")
 var User =require("../models/User")
 const {formatCpfCnpj} = require("../lib/configs/utils")
 
 module.exports = {
     registerForm(req,res){
-
         return res.render("user/registro")
     },
 
@@ -21,7 +19,7 @@ module.exports = {
 
       req.session.userId = userId
 
-        return res.redirect("/user/registro")
+        return res.redirect("/user/index")
 
     },
 

@@ -6,6 +6,7 @@
 .container-profissional{
     display: grid;
     grid-template-rows: 15vh auto;
+    position: relative;
 }
 .container-table{
     display: grid;

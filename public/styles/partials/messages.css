@@ -10,7 +10,8 @@
     justify-content: center;
     padding: 16px;
     position: absolute;
-    width: 100%;
+    width: 98%;
+    border-radius: 50px;
     color: white;
     top: 0;
     opacity: 1;
@@ -18,7 +19,7 @@
 }
 
 .messages.error{
-    background: red;
+    background: rgba(255, 0, 0, 0.692);
 }
 
 .messages.success{

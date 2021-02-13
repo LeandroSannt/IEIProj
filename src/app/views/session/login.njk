@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/partials/login.css">
+    <link rel="stylesheet" href="/styles/partials/messages.css">
     <title>Login</title>
 </head>
 
 <body>
     <section class="section-form">
+    {%include "parts/messages.njk"%}
         <div class="user-img">
             <i class="fas fa-user-alt"></i>
         </div>
         <div class="quote">
             <h1>Login</h1>
         </div>
-         <form  method="POST" action="/user/login" id="form" class="form" name ="login">
+        <form  method ="POST" action="/user/login" id="form" class="form" name ="login">
+
              <label for="email">
                 <div class="form-group">
                     <i class="fas fa-user"></i>
@@ -41,7 +44,7 @@
                 <p> * Por favor, preencha o campo corretamente</p>
             </div>
             <div class="confirmations">
-                <a href="/user/forgot-password">Cadastrar Usuario</a> 
+                <a href="/user/registro">Cadastrar Usuario</a> 
                 <a href="/user/forgot-password">Esqueci a senha</a>
             </div>
             <button type="submit" class="btn btn-login">Login</a>

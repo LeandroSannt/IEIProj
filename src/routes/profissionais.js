@@ -2,13 +2,15 @@ const express = require("express")
 const routes =express.Router()
 const profissionais = require("../app/controller/profissionais")
 
-routes.get("/", profissionais.index); 
-routes.get("/cadastro", profissionais.create); 
-routes.get("/detalhes/:id", profissionais.show);
-routes.get("/detalhes/:id/edit", profissionais.edit);
+const { onlyUser} = require("../app/middlewares/session")
 
-routes.post("/", profissionais.post); 
-routes.put("/", profissionais.put); 
-routes.delete("/", profissionais.delete);
+routes.get("/",onlyUser, profissionais.index); 
+routes.get("/cadastro", onlyUser,profissionais.create); 
+routes.get("/detalhes/:id",onlyUser, profissionais.show);
+routes.get("/detalhes/:id/edit", onlyUser,profissionais.edit);
+
+routes.post("/", onlyUser, profissionais.post); 
+routes.put("/", onlyUser, profissionais.put); 
+routes.delete("/", onlyUser, profissionais.delete);
 
 module.exports = routes

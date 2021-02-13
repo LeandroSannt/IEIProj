@@ -15,7 +15,7 @@ body {
     background: #5c83be;
   }
   100% {
-    background: #1b558b;
+    background: #aeaeaf
   }
 }
 @keyframes bg-change-color {
@@ -23,7 +23,7 @@ body {
     background: #5c83be;
   }
   100% {
-    background: #1b558b;
+    background: #aeaeaf
   }
 }
 
@@ -89,6 +89,7 @@ body {
   margin: 0;
   margin-top: 1rem;
   letter-spacing: 0.1rem;
+  margin-bottom: 10px;
 }
 
 .form {
@@ -101,6 +102,7 @@ body {
   padding: 1rem 0.7rem 0.3rem 0.2rem;
   transition: 0.3s ease;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .form-group.active-focus {
@@ -121,12 +123,18 @@ body {
   z-index: 10;
 }
 
+form {
+  width: 90%;
+}
+
 .form-group input {
   box-sizing: border-box;
   border: 0;
   background-color: transparent;
   outline: none;
   color: #1b558b;
+  width: 90%;
+
  
 }
 

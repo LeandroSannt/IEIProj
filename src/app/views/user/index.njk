@@ -17,7 +17,7 @@
 <div class="container-profissional">
 
      <section class ="gender" >
-        <H1>Alterando dados</H1>
+        <H1>Minha conta</H1>
      </section>
      
      <aside>
@@ -25,7 +25,7 @@
                 <form  method="POST" action="/user?_method=PUT">
                          <div class="details">
                         {%include  "user/fields.njk"%}
-                         <button class="enviar" type="submit">Salvar</button>
+                         <button class="enviar" type="submit">Atualizar</button>
                         <button class =delete type="submit" form ="form-delete">Deletar</button> 
                         </div>
                         <input type="hidden" name="id"value={{user.id}}> 

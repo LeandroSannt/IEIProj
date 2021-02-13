@@ -16,10 +16,10 @@
 
 </head>
 <body>
-    {%include "parts/messages.njk"%}
 
 <div class="container-global">
     <div class="pareativos">
+        {% block header %} 
         <header>
             <div class="info-personal">
                 <img src="/assets/logo-instituto.png" alt="logo do instituto">
@@ -66,28 +66,25 @@
                             </span>   
                         </li>
                     </a>
-                    {%if user%}
-                <a href="#">
-                    <li class="/accounts">  
-                        <ul class="submenu">
-                            <a href="/user">Configuraçoes</a>
-                                <li>
-                                    <form action="/user/logout" method="POST">
-                                        <button>Sair</button>
-                                    </form>
-                                </li>
-                        </ul>                          
+
+            </ul>  
+            {%if session.userId%}
+                <a class="minha-conta" href="/user/index">Minha conta</a>
+                    <form action="/user/logout" method="POST">
+                            <button class="btn-sair">Sair</button>
+                        </form>
                     </li>
                 </a>
-                    {%endif%}
-            </ul>  
+            {%endif%}
             </nav>
         </header>
+        {% endblock header %}
     </div>    
         {% block fail %}
  <div class="container-table">
         {% endblock fail %}
 
+{%include "parts/messages.njk"%}
 {% block cards %}
      <section class ="cards" >
         <div class="container-card ">
