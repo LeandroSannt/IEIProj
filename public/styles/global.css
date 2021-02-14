@@ -68,3 +68,44 @@ form button:hover{
     cursor: pointer;
 
 }
+
+.container-not-found{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-not-found h1{
+    margin-bottom: 20px;
+}
+
+.container-not-found p {
+    font-size: 20rem;
+    margin-bottom: 20px;
+}
+
+.container-not-found button{
+    width: 100%;
+    outline: none;
+   background-color: var(--color-bg-card);
+   color:#4e5053;
+   border: none;
+   border-radius: 3px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   transition: 200ms;
+   margin-top: 5px;
+   
+   
+}
+
+.container-not-found button:hover{
+    background-color:var(--color-bg-fundo) ;
+    cursor: pointer;
+}
+
+.container-not-found a {
+    text-decoration: none;
+    color: black;
+}

@@ -10,14 +10,49 @@
 }
 .container-table{
     display: grid;
-    grid-template-rows: 35vh auto;
+    grid-template-rows: 7vh 30vh auto;
+   
 }
+
+.user-info-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 1px 1px 15px -10px black;
+    background-color: #ebf2f5;
+    animation-name: up;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-delay: 0.2s;
+}
+
+.user-info-header .info-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.user-info-header .info-user p{
+padding: 15px;
+
+}
+
+.user-info-header .info-user img{
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow:  3px 1px 6px -4px black;
+    border: 1px solid white;
+}
+
 .container-global .cards{
-    margin-top: 30px;
     height: 30vh;
     display: grid ;
     grid-template-columns: repeat(3,1fr) !important;
-    gap: 20px;
     opacity: 0;
     animation-name: move;
     animation-duration: 700ms;
@@ -67,7 +102,7 @@ font-size: 4rem;
 .container-global .cards .container-card .card{
     display: grid;
     grid-template-rows:1fr 50px;
-    width: 350px;
+    width: 40rem;
     height: 200px;
     background-color: #ebf2f5;
     border-radius: 10px;

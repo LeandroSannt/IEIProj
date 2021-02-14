@@ -7,9 +7,6 @@
 
     {%include "parts/styles.njk"%}
 
-    {% block boostrap %}
-    {% endblock boostrap %}
-
     {% block title %}   
         <title>Instituto</title>
     {% endblock title %}
@@ -54,7 +51,7 @@
                         <li>
                             <span>
                                 <img src="/assets/005-adicionar-amigo.svg" alt="">
-                                <p>Cadastrar profissionais</p>
+                                <p>Cadastrar <br>profissionais</p>
                             </span>  
                         </li>
                     </a>
@@ -82,6 +79,15 @@
     </div>    
         {% block fail %}
  <div class="container-table">
+     <div class ="user-info-header">
+         <a href="/"><img src="/assets/back.svg" alt=""></a>
+        
+        <div class="info-user">
+            <img src="/assets/karolynaamorzinho.jpg" alt="img usuario">
+            <p>karolyna</p>
+        </div>
+        
+     </div>
         {% endblock fail %}
 
 {%include "parts/messages.njk"%}
