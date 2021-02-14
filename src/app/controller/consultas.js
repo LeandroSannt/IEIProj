@@ -1,5 +1,4 @@
-var {date} =require("../lib/configs/utils")
-const { piscicologia } = require("../models/consultas")
+var {date, age} =require("../lib/configs/utils")
 var Consultas =require("../models/consultas")
 
 module.exports={
@@ -11,7 +10,6 @@ module.exports={
     if(filter){
         let results = await Consultas.filter(filter)
         const consultas = results.rows
-        consultas.data = date(consultas.data).format
 
         results = await Consultas.totalConsultas()
         const totalConsultas = results.rows
@@ -21,13 +19,13 @@ module.exports={
     
         results = await Consultas.nutricao(req.body)
         const totalNutricao = results.rows
+        consultas.data = date(consultas.data).format
             return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
 
     }else{
 
         let results = await Consultas.all(req.body)
-        const consultas = results.rows
-        consultas.data = date(consultas.data).format
+        const consultas = results.rows.slice(0,4)
 
         results = await Consultas.totalConsultas()
         const totalConsultas = results.rows
@@ -37,6 +35,7 @@ module.exports={
     
         results = await Consultas.nutricao(req.body)
         const totalNutricao = results.rows
+        consultas.data = age(consultas.data).age
             return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
 
         }
@@ -60,6 +59,8 @@ module.exports={
     },
 
 async nutricao(req,res){
+
+
     let results = await Consultas.totalNutricao(req.body)
     const consultas = results.rows
     consultas.data = date(consultas.data).format
@@ -104,25 +105,27 @@ async post(req,res){
     const keys =Object.keys(req.body)
     for(key of keys){
         if(req.body[key] == "" && key != "observacao"){
-        return res.send("dados faltando")
+        return res.redirect("consultas/agendamento")
         }
     }
-    let results = await Consultas.create(req.body)
-    const consultas = results.rows
-    consultas.data = date(consultas.data).iso
 
-    return res.render(`consultas/index`,{consultas})
+    let results = await Consultas.create(req.body)
+    const consultaId = results.rows[0].id
+
+    return res.redirect(`/consultas/detalhes/${consultaId}`)
+   
     },
 
 async show(req,res){ 
     let results = await Consultas.find(req.params.id)
     consulta =results.rows[0]
-    consulta.data = date(consulta.data).format
+   
 
     results = await Consultas.findBy(req.params.id)
     find = results.rows[0]
     
-    if(!consulta) return res.send("consulta não encontrada")
+    if(!consulta) return res.render(`parts/not-found`)
+        consulta.data = date(consulta.data).format
         return res.render(`consultas/show`,{find,consulta})
 
     },
@@ -134,9 +137,8 @@ async edit(req,res){
 
     results = await Consultas.profissionaisSelect(req.body)
     const options = results.rows
-        if(!consulta) return res.send("consulta não encontrada")
-
-            return res.render("consultas/edit",{consulta, profissionaisOptions:options})
+        if(!consulta) return res.render("parts/not-found")
+            return res.render("consultas/edit",{consulta,profissionaisOptions:options})
 
     },
     

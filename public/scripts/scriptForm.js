@@ -9,7 +9,7 @@ function mult(value){
 
  const formDelete= document.querySelector("#form-delete")
         formDelete.addEventListener("submit",function(event){
-            const confirmation = confirm("Deseja deletar a receita ?")
+            const confirmation = confirm("Tem certeza que dejesa pagar esse usuario, a ação não podera ser desfeita")
             if(!confirmation){
                 event.preventDefault()
         }

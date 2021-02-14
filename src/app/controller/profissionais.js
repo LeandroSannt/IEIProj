@@ -1,4 +1,3 @@
-var {age, date} =require("../lib/configs/utils")
 var Profissionais =require("../models/profissionais")
 
 module.exports={
@@ -42,19 +41,18 @@ async post(req,res){
 async show(req,res){ 
     let results = await Profissionais.find(req.params.id)
     profissional =results.rows[0]
-
-    if(!profissional) return res.send("profissional não encontrada")
+        if(!profissional) return res.render("parts/not-found")
     
-    return res.render(`profissionais/show`,{profissional})
+        return res.render(`profissionais/show`,{profissional})
 
     },
     
 async edit(req,res){
     let results = await Profissionais.find(req.params.id)
     const profissional = results.rows[0]
-        if(!profissional) return res.send("profissional não encontrada")
+        if(!profissional) return res.render("parts/not-found")
 
-    return res.render("profissionais/edit",{profissional})
+        return res.render("profissionais/edit",{profissional})
 
     },
     

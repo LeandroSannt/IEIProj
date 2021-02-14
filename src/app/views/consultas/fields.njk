@@ -2,21 +2,21 @@
 <div class="item">
     <div>Nome do paciente</div>
     <div>
-        <input type="text" name="nome_paciente" placeholder="Nome e sobrenome" value="{{consulta.nome_paciente}}">
+        <input type="text" name="nome_paciente" placeholder="Nome e sobrenome" value="{{consulta.nome_paciente}}"required>
     </div>
 </div>
 
 <div class="item">
     <div>Data da consulta</div>
     <div>
-        <input type="date" name="data" value="{{consulta.data}}">
+        <input type="date" name="data" value="{{consulta.data}}"required>
     </div>
 </div>
 
 <div class="item">
     <div>Hora</div>
     <div>
-        <input type="text" name="hora" placeholder="Hora da consulta" class="time-mask" value="{{consulta.hora}}">
+        <input type="text" name="hora" placeholder="Hora da consulta" class="time-mask" value="{{consulta.hora}}"required>
     </div>
 </div>
 
@@ -36,21 +36,21 @@
     <div>Valor da consulta</div>
     <div>
         <input type="number" name="valor_consulta"  step="0.01" placeholder="Valor total da consulta"
-            onkeyup="mult(this.value)" value="{{consulta.valor_consulta}}">
+            onkeyup="mult(this.value)" value="{{consulta.valor_consulta}}"required>
     </div>
 </div>
 
 <div class="item">
     <div>Valor da instituição</div>
     <div>
-        <input type="number" name="valor_instituicao" step=0.01 placeholder="Parte da instituição" id="prof" value="{{consulta.valor_instituicao}}">
+        <input type="number" name="valor_instituicao" step=0.01 placeholder="Parte da instituição" id="prof" value="{{consulta.valor_instituicao}}" required>
     </div>
 </div>
 
 <div class="item">
     <div>Valor do profissional</div>
     <div>
-        <input type="number" name="valor_profissional"step=0.01 placeholder="Parte do profissional" id="insti" value="{{consulta.valor_profissional}}">
+        <input type="number" name="valor_profissional"step=0.01 placeholder="Parte do profissional" id="insti" value="{{consulta.valor_profissional}}"required>
     </div>
 </div>
 
@@ -59,12 +59,12 @@
     <div>
         <span>
             <input type="radio" name="pagamento" id="pagamentoP" value="P" 
-            {% if consulta.pagamento == "P"   %} checked {% endif %}>
+            {% if consulta.pagamento == "P"   %} checked {% endif %} required>
             <label for="pagamentoP">Pago</label>
         </span>
         <span>
             <input type="radio" name="pagamento" value="NP" 
-            {% if consulta.pagamento == "NP"   %} checked {% endif %} id="pagamentoNP">
+            {% if consulta.pagamento == "NP"   %} checked {% endif %} id="pagamentoNP" required>
             <label for="pagamentoNP">Não pago</label>
         </span>
     </div>
