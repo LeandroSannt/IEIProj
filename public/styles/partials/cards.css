@@ -5,7 +5,7 @@
 }
 .container-profissional{
     display: grid;
-    grid-template-rows: 15vh auto;
+    grid-template-rows: 7vh 13vh auto;
     position: relative;
 }
 .container-table{
@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    box-shadow: 1px 1px 15px -10px black;
+    box-shadow: 10px 0px 15px -10px black;
     background-color: #ebf2f5;
     animation-name: up;
     animation-duration: 700ms;

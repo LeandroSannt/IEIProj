@@ -78,16 +78,8 @@
         {% endblock header %}
     </div>    
         {% block fail %}
- <div class="container-table">
-     <div class ="user-info-header">
-         <a href="/"><img src="/assets/back.svg" alt=""></a>
-        
-        <div class="info-user">
-            <img src="/assets/karolynaamorzinho.jpg" alt="img usuario">
-            <p>karolyna</p>
-        </div>
-        
-     </div>
+    <div class="container-table">
+     {%include "parts/sub-header.njk"%}
         {% endblock fail %}
 
 {%include "parts/messages.njk"%}

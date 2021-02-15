@@ -1,3 +1,5 @@
+
+
 function mult(value){
     const instituto = (40/100) * value
     const profissional = (60/100) * value
@@ -15,14 +17,5 @@ function mult(value){
         }
     })
 
-/*
- const currentPage =location.pathname
-const menuItems = document.querySelectorAll("header  a ")
 
-for(item of menuItems){
- 
-    if(currentPage .includes(item.getAttribute("href"))){
-        item.classList.add("active")
-}
-}*/
 

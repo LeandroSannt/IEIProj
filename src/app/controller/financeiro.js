@@ -1,3 +1,4 @@
+const { render } = require("nunjucks")
 var {age, date} =require("../lib/configs/utils")
 const financeiro = require("../models/financeiro")
 var Financeiro =require("../models/financeiro")
@@ -16,40 +17,27 @@ module.exports={
         results = await Financeiro.totalValores()
         const totalValores = results.rows
 
-        results = await Financeiro.selectPagos()
-        const selectPagos = results.rows
-
         results = await Financeiro.totalPagos()
         const totalPagos = results.rows
-
-        results = await Financeiro.selectNpagos()
-        const selectNpagos = results.rows
 
         results = await Financeiro.totalNpagos()
         const totalNpagos = results.rows
 
-            return res.render("financeiro/index",{financeiro,totalValores,selectPagos,totalPagos,selectNpagos,totalNpagos}) 
+            return res.render("financeiro/index",{financeiro,totalValores,totalPagos,totalNpagos}) 
     }else{
 
         let results = await Financeiro.all()
         const financeiro = results.rows
     
-
         results = await Financeiro.totalValores()
         const totalValores = results.rows
-
-        results = await Financeiro.selectPagos()
-        const selectPagos = results.rows
 
         results = await Financeiro.totalPagos()
         const totalPagos = results.rows
 
-        results = await Financeiro.selectNpagos()
-        const selectNpagos = results.rows
-
         results = await Financeiro.totalNpagos()
         const totalNpagos = results.rows
-            return res.render("financeiro/index",{financeiro,totalValores,selectPagos,totalPagos,selectNpagos,totalNpagos}) 
+            return res.render("financeiro/index",{financeiro,totalValores,totalPagos,totalNpagos}) 
 
         }
     },
@@ -66,6 +54,24 @@ async financeiroConsultas(req,res){
 
     return res.render(`financeiro/profissional-consultas`,{ profissional,consultas}) 
 
-    }
+    },
+
+
+async consultasAbertas(req,res){
+        results = await Financeiro.selectNpagos()
+        const selectNpagos = results.rows
+        return res.render("financeiro/consultas-abertas",{selectNpagos})
+
+    },
+
+async consultasFechadas(req,res){
+
+    results = await Financeiro.selectPagos()
+    const selectPagos = results.rows
+    return res.render("financeiro/consultas-fechadas",{selectPagos})
+    
+    },
+
+
 }
 

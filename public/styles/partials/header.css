@@ -12,9 +12,9 @@ header{
     min-width: 200px;
     width: 15vw;
     position: fixed;
+    box-shadow: 1px 1px 15px -10px black;
     height: 100%;
     background-color: white;
-    box-shadow: -4px 11px 5px 5px black;
     animation-name: up;
     animation-duration: 700ms;
     animation-fill-mode: forwards;
@@ -22,6 +22,15 @@ header{
     animation-delay: 0.2s;
     opacity: 0;
 }
+
+
+/*.active{
+    background-color: #9cc5e7;
+    border-left: solid 7px #194c9e;
+    color:  #194c9e;  
+    font-weight: bold; 
+
+}*/
 
 .pareativos{
     display: grid;
@@ -46,15 +55,11 @@ header .info-personal{
 header .info-personal img {
     width: 90%;
     height: 80px;
-    
-    
 }
 
 header nav{
     display: grid;
     grid-template-rows: 1fr 50px;
-
-
 }
 
 header nav ul{

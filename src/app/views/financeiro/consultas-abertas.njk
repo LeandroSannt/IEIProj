@@ -17,9 +17,7 @@
     <section class ="gender" >
         <section class ="filter-professional gender" >
             <span class ="title-profissional">    
-                <H1>{{profissional.nome}}</H1>
-                <br> 
-                <h3>{{profissional.especialidade}}</h3>
+                <H1>Consultas em aberto</H1>
             </span>
         </section>
      </section>
@@ -37,7 +35,7 @@
                  </thead>
 
                     <tbody>
-                     {% for consulta in consultas %}
+                     {% for consulta in selectNpagos %}
                         <tr>
                             <td>{{consulta.nome_paciente}}</td>
                             <td>{{consulta.data}}</td>
