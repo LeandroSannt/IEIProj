@@ -128,7 +128,7 @@ module.exports= {
         return db.query(`SELECT profissionais.especialidade ,count(consultas) AS total
         FROM  profissionais
         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
-        WHERE profissionais.especialidade = 'Piscicologia'
+        WHERE profissionais.especialidade = 'Psicologia'
         GROUP BY profissionais.especialidade
         `)
     },
@@ -139,7 +139,7 @@ module.exports= {
         profissionais.nome AS prof_nome
         FROM consultas
         LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
-        WHERE profissionais.especialidade = 'Piscicologia'
+        WHERE profissionais.especialidade = 'Psicologia'
         `)
     },
 
@@ -164,73 +164,5 @@ module.exports= {
        `)    
     }
 
-/*
-    paginate(params){
-        const {filter,limit,offset,callback} = params
-
-        let query ="",
-            filterQuery ="",
-            totalQuery=`(
-            SELECT count(*) FROM recipes
-        ) AS total `
-
-            if(filter){
-                filterQuery =`
-                WHERE recipes.title ILIKE '%${filter}%'
-                 OR chefs.name ILIKE '%${filter}%'
-                `
-                totalQuery =`(
-                    SELECT count (*) FROM recipes
-                     ${filterQuery}
-                ) as total`
-            }
-
-            queryFind =`
-            `
-
-            query =`
-            SELECT recipes. *, ${totalQuery}, chefs.name AS chefs_name
-            FROM recipes
-            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-            ${filterQuery}
-            LIMIT $1 OFFSET $2`
-
-            db.query(query,[limit,offset],function(err,results){
-                if(err) throw "Database error"
-
-                callback(results.rows)
-            })
-        },
-
-    files(id){
-        return db.query(`
-        SELECT files.*, recipe_files.file_id AS file_id
-        FROM files 
-        LEFT JOIN recipe_files ON (recipe_files.file_id = files.id)
-        WHERE recipe_files.recipe_id = $1
-      `,[id]);
-    },
-    async recipeFiles(id) {
-        const query = `
-        SELECT *, (
-            SELECT files.path
-            FROM files
-            LEFT JOIN recipe_files 
-            ON (files.id = recipe_files.file_id)
-            WHERE recipe_files.recipe_id = $1
-            LIMIT 1
-            ) 
-        FROM recipes 
-        LEFT JOIN recipe_files ON 
-        (recipes.id = recipe_files.recipe_id)
-        WHERE recipes.id = $1
-        LIMIT 1
-        `
-
-        const results = await db.query(query, [id])
-
-        return results.rows
-    }
-    */
 }    
     

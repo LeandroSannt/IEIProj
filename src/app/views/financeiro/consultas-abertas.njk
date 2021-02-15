@@ -31,6 +31,7 @@
                         <th>Data da consulta</th>
                         <th>Valor da consulta</th>
                         <th>Situação</th>
+                        <th></th>
                     </tr>
                  </thead>
 
@@ -41,6 +42,8 @@
                             <td>{{consulta.data}}</td>
                             <td> R${{consulta.valor_consulta}}</td>
                             <td>{{"Pago" if consulta.pagamento ==  "P" else "Não pago"}}</td>
+                            <td><a href="/consultas/detalhes/{{consulta.id}}">Ver</a></td>
+
                         </tr>
                         {% endfor %}
                     </tbody>

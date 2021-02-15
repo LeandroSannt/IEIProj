@@ -25,7 +25,7 @@ module.exports={
     }else{
 
         let results = await Consultas.all(req.body)
-        const consultas = results.rows.slice(0,4)
+        const consultas = results.rows.slice(0,10)
 
         results = await Consultas.totalConsultas()
         const totalConsultas = results.rows

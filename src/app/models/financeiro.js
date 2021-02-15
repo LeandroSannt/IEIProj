@@ -11,6 +11,8 @@ module.exports= {
         COUNT(consultas) as total_consultas
         FROM  profissionais
         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+        WHERE  Extract(month from data) = Extract(month from Now())	
+		AND pagamento = 'P'
         GROUP BY profissionais.id
         `)
     },
@@ -56,10 +58,12 @@ findConsultas(id){
 
    totalValores(){
        return db.query(`
-       SELECT SUM(consultas.valor_profissional) AS valor_profissional,
-       SUM(consultas.valor_instituicao) AS valor_instituicao
-       FROM  profissionais
-       LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
+       SELECT SUM(valor_instituicao) as valor_instituicao,
+       SUM(valor_profissional) as valor_profissional
+       FROM   consultas
+       WHERE  Extract(month from data) >= Extract(month from Now())
+       AND    Extract(month from data) <= Extract(month from Now())
+       AND pagamento = 'P'
      `)
    },
 
