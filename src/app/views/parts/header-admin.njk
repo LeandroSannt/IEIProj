@@ -1,0 +1,58 @@
+        <header>
+            <div class="info-personal">
+                <img src="/assets/logo-instituto.png" alt="logo do instituto">
+            </div>
+            <nav>
+                <ul>
+                    <a href="/">
+                        <li>
+                            <span>
+                                <img src="/assets/004-consulta.svg" alt="">
+                                <p>Consultas</p>
+                            </span>
+                        </li>
+                    </a>
+                    <a href="/consultas/agendamento">
+                        <li>
+                            <span>
+                                <img src="/assets/001-caderno.svg" alt="">
+                                <p>Agendar <br> consultas</p>
+                            </span>
+                        </li>
+                    </a>
+                     <a href="/profissionais">
+                        <li>
+                            <span>
+                                <img src="/assets/008-silhueta-de-multiplos-usuarios.svg" alt="">
+                                <p>Profissionais</p>
+                            </span>   
+                        </li>
+                    </a>
+                    <a href="/profissionais/cadastro">
+                        <li>
+                            <span>
+                                <img src="/assets/005-adicionar-amigo.svg" alt="">
+                                <p>Cadastrar <br>profissionais</p>
+                            </span>  
+                        </li>
+                    </a>
+                    <a href="/financeiro">
+                        <li>
+                            <span>
+                                <img src="/assets/009-relatorio.svg" alt="">
+                                <p>Relatorio <BR>financeiro</p>
+                            </span>   
+                        </li>
+                    </a>
+
+            </ul>  
+            {%if session.userId%}
+                <a class="minha-conta" href="/user/index">Minha conta</a>
+                    <form action="/user/logout" method="POST">
+                            <button class="btn-sair">Sair</button>
+                        </form>
+                    </li>
+                </a>
+            {%endif%}
+            </nav>
+        </header>

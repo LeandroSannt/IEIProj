@@ -1,7 +1,5 @@
 {% extends "layout.njk" %}     
-
-
-        
+       
 {% block title %}
     <title>Profissionais</title>
 {% endblock title %}
@@ -33,7 +31,9 @@
                     <tr>
                         <th>Nome do profissional</th>
                         <th>Especialidade</th>
-                        <th></th>
+                           {%if session.userId == 24 %}
+                            <th></th>
+                            {%endif%}
                     </tr>
                  </thead>
 
@@ -42,7 +42,9 @@
                         <tr>
                             <td>{{profissional.nome}}</td>
                             <td>{{profissional.especialidade}}</td>
+                            {%if session.userId == 24 %}
                             <td><a href="profissionais/detalhes/{{profissional.id}}">Ver</a></td>
+                            {%endif%}
                         </tr>
                         {% endfor %}
                     </tbody>

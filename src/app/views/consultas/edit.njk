@@ -29,7 +29,9 @@
                          <div class="details">
                         {%include  "consultas/fields.njk"%}
                          <button class="enviar" type="submit">Salvar</button>
+                        {%if session.userId == 24 %}
                         <button class =delete type="submit" form ="form-delete">Deletar</button> 
+                        {%endif%}
                         </div>
                         <input type="hidden" name="id"value={{consulta.id}}> 
 
