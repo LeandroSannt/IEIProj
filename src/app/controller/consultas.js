@@ -11,17 +11,14 @@ module.exports={
     if(filter){
         let results = await Consultas.filter(filter)
         const consultas = results.rows
-
-        consultas.data =  new Intl.DateTimeFormat('pt-BR').format(consultas.data)
         
-
         results = await Consultas.totalConsultas()
         const totalConsultas = results.rows
 
-        results = await Consultas.piscicologia(req.body)
+        results = await Consultas.totalPiscicologia(req.body)
         const totalPiscicologia = results.rows
     
-        results = await Consultas.nutricao(req.body)
+        results = await Consultas.totalNutricao(req.body)
         const totalNutricao = results.rows
 
             return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
@@ -34,14 +31,11 @@ module.exports={
         results = await Consultas.totalConsultas()
         const totalConsultas = results.rows
 
-        results = await Consultas.piscicologia(req.body)
+        results = await Consultas.totalPiscicologia(req.body)
         const totalPiscicologia = results.rows
     
-        results = await Consultas.nutricao(req.body)
+        results = await Consultas.totalNutricao(req.body)
         const totalNutricao = results.rows
-
-        
-        consultas.data = date(consultas.data).format
 
             return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
 
@@ -56,46 +50,42 @@ module.exports={
     results = await Consultas.totalConsultas()
     const totalConsultas = results.rows
 
-    results = await Consultas.piscicologia(req.body)
+    results = await Consultas.totalPiscicologia(req.body)
     const totalPiscicologia = results.rows
 
-    results = await Consultas.nutricao(req.body)
+    results = await Consultas.totalNutricao(req.body)
     const totalNutricao = results.rows
     return res.render("consultas/consultasDia",{consultas,totalConsultas,totalPiscicologia,totalNutricao})
 
     },
 
 async nutricao(req,res){
-
-
-    let results = await Consultas.totalNutricao(req.body)
+    let results = await Consultas.nutricao(req.body)
     const consultas = results.rows
-    consultas.data = date(consultas.data).format
 
     results = await Consultas.totalConsultas()
     const totalConsultas = results.rows
 
-    results = await Consultas.piscicologia(req.body)
+    results = await Consultas.totalPiscicologia(req.body)
     const totalPiscicologia = results.rows
 
-    results = await Consultas.nutricao(req.body)
+    results = await Consultas.totalNutricao(req.body)
     const totalNutricao = results.rows
     return res.render("consultas/consultasNutricao",{consultas,totalConsultas,totalPiscicologia,totalNutricao})
 
     },
 
 async piscicologia(req,res){
-        let results = await Consultas.totalPiscicologia(req.body)
+    let results = await Consultas.piscicologia(req.body)
     const consultas = results.rows
-    consultas.data = date(consultas.data).iso
 
     results = await Consultas.totalConsultas()
     const totalConsultas = results.rows
 
-    results = await Consultas.piscicologia(req.body)
+    results = await Consultas.totalPiscicologia(req.body)
     const totalPiscicologia = results.rows
 
-    results = await Consultas.nutricao(req.body)
+    results = await Consultas.totalNutricao(req.body)
     const totalNutricao = results.rows
     return res.render("consultas/consultasPiscicologia",{consultas,totalConsultas,totalPiscicologia,totalNutricao})
 
@@ -147,7 +137,6 @@ async edit(req,res){
     const options = results.rows
         if(!consulta) return res.render("parts/not-found")
             return res.render("consultas/edit",{consulta,profissionaisOptions:options})
-
     },
     
 async put(req,res){

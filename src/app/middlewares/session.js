@@ -10,8 +10,17 @@ function isLoggedRedirect(req,res,next){
         return res.redirect("/user")
 }
 
+function redirectNotPermission(req,res,next){
+    if(req.session.userId != 24){
+        return res.render("parts/not-found")
+    }else{
+        next()
+    }
+}
+
 module.exports = {
     onlyUser,
-    isLoggedRedirect
+    isLoggedRedirect,
+    redirectNotPermission
     
 }

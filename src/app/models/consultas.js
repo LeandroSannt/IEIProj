@@ -97,7 +97,7 @@ module.exports= {
             `
         var values =[
             data.nome_paciente,
-            data.data =  new Intl.DateTimeFormat('pt-BR').format(data.data),
+            data.data ,
             data.hora,
             data.valor_consulta,
             data.valor_instituicao,
@@ -121,7 +121,9 @@ module.exports= {
 
     totalConsultasDia(){
         return db.query(`
-        SELECT consultas.* ,profissionais.especialidade AS prof_esp,
+        SELECT consultas.*,
+        TO_CHAR(data, 'DD/MM/YYYY') AS data_formatada ,
+        profissionais.especialidade AS prof_esp,
         profissionais.nome AS prof_nome
         FROM consultas
         LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
@@ -129,19 +131,20 @@ module.exports= {
     },
 
     piscicologia(){
-        return db.query(`SELECT profissionais.especialidade ,count(consultas) AS total
+        return db.query(`       
+        SELECT consultas.* ,
+        TO_CHAR(data, 'DD/MM/YYYY') AS data_formatada,
+        profissionais.especialidade AS prof_esp,
+        profissionais.nome AS prof_nome
         FROM  profissionais
         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
-        WHERE profissionais.especialidade = 'Psicologia'
-        GROUP BY profissionais.especialidade
+        WHERE profissionais.especialidade = 'Psicologia'	
         `)
     },
 
     totalPiscicologia(){
         return db.query(`
-        SELECT consultas.* ,profissionais.especialidade AS prof_esp,
-        profissionais.nome AS prof_nome
-        FROM consultas
+        SELECT count(*) AS total  FROM consultas
         LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
         WHERE profissionais.especialidade = 'Psicologia'
         `)
@@ -149,20 +152,21 @@ module.exports= {
 
    nutricao(){
         return db.query(`
-        SELECT profissionais.especialidade ,count(consultas) AS total
+        SELECT consultas.* ,
+        TO_CHAR(data, 'DD/MM/YYYY') AS data_formatada,
+        profissionais.especialidade AS prof_esp,
+        profissionais.nome AS prof_nome
         FROM  profissionais
         LEFT JOIN consultas ON (profissionais.id = consultas.profissional_id)
-        WHERE profissionais.especialidade = 'Nutricao'
-        GROUP BY profissionais.especialidade
+        WHERE profissionais.especialidade = 'Nutricao'	
+        ORDER BY created_at desc
+        
        `)    
     },
 
     totalNutricao(){
         return db.query(`       
-         SELECT consultas.* ,
-        profissionais.especialidade AS prof_esp,
-        profissionais.nome AS prof_nome
-        FROM consultas
+        SELECT count(*) AS total  FROM consultas
         LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
         WHERE profissionais.especialidade = 'Nutricao'
        `)    

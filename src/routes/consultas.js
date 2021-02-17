@@ -2,7 +2,7 @@ const express = require("express")
 const routes =express.Router()
 const consultas = require("../app/controller/consultas")
 
-const { onlyUser} = require("../app/middlewares/session")
+const { onlyUser, redirectNotPermission} = require("../app/middlewares/session")
 
 routes.get("/",onlyUser, consultas.index);
 routes.get("/total-consultas-do-dia",onlyUser, consultas.total);
@@ -14,7 +14,7 @@ routes.get("/detalhes/:id/edit", onlyUser,consultas.edit);
 
 routes.post("/", onlyUser, consultas.post); 
 routes.put("/", onlyUser,consultas.put);
-routes.delete("/", onlyUser, consultas.delete); 
+routes.delete("/", redirectNotPermission,onlyUser, consultas.delete); 
 
 
 module.exports = routes
