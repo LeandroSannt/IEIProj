@@ -16,11 +16,9 @@ module.exports = {
 
   async  post(req,res){
       const userId = await User.create(req.body)
-
       req.session.userId = userId
 
-        return res.redirect("/user/index")
-
+      return res.redirect("/user/index")
     },
 
   async update(req,res){
@@ -43,7 +41,7 @@ module.exports = {
       console.error(err)
       return res.render("user/index",{
         error:"Algum error aconteceu"
-      })
+        })
       }
     },
 }

@@ -1,7 +1,6 @@
-const { render } = require("nunjucks")
-var {age, date} =require("../lib/configs/utils")
-const financeiro = require("../models/financeiro")
+var {date} =require("../lib/configs/utils")
 var Financeiro =require("../models/financeiro")
+const Intl =require("intl")
 
 module.exports={
     
@@ -10,7 +9,6 @@ module.exports={
     const{filter} =req.query
 
     if(filter){
-        
         results = await Financeiro.filter(filter)
         const financeiro = results.rows
     
@@ -23,9 +21,8 @@ module.exports={
         results = await Financeiro.totalNpagos()
         const totalNpagos = results.rows
 
-            return res.render("financeiro/index",{financeiro,totalValores,totalPagos,totalNpagos}) 
+        return res.render("financeiro/index",{financeiro,totalValores,totalPagos,totalNpagos}) 
     }else{
-
         let results = await Financeiro.all()
         const financeiro = results.rows
     
@@ -37,8 +34,8 @@ module.exports={
 
         results = await Financeiro.totalNpagos()
         const totalNpagos = results.rows
-            return res.render("financeiro/index",{financeiro,totalValores,totalPagos,totalNpagos}) 
-
+    
+        return res.render("financeiro/index",{financeiro,totalValores,totalPagos,totalNpagos} ) 
         }
     },
 
@@ -51,17 +48,13 @@ async financeiroConsultas(req,res){
     consultas.data = date(consultas.data)
     
     if(!financeiro) return res.send("profissional não encontrada")
-
     return res.render(`financeiro/profissional-consultas`,{ profissional,consultas}) 
-
     },
-
 
 async consultasAbertas(req,res){
         results = await Financeiro.selectNpagos()
         const selectNpagos = results.rows
         return res.render("financeiro/consultas-abertas",{selectNpagos})
-
     },
 
 async consultasFechadas(req,res){
@@ -69,7 +62,6 @@ async consultasFechadas(req,res){
     results = await Financeiro.selectPagos()
     const selectPagos = results.rows
     return res.render("financeiro/consultas-fechadas",{selectPagos})
-    
     },
 
 

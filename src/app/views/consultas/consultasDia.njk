@@ -4,7 +4,6 @@
     <title>Consultas</title>
 {% endblock title %}
 
-
 {% block content %} 
 
      <aside>
@@ -34,14 +33,8 @@
                     {% endfor %}
                 </tbody>
             </table>
-                <div class="pagination"
-            data-page={{pagination.page}}
-            data-total={{pagination.total}}
-            data-filter={{filter}}
-        ></div>
          </div>
      </aside>
-
     <script src="/scripts/pagination.js"></script>  
 {% endblock content %}
 

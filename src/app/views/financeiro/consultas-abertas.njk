@@ -1,7 +1,7 @@
 {% extends "layout.njk" %}     
 
 {% block title %}
-    <title>Profissionais</title>
+    <title>Consultas em Aberto</title>
 {% endblock title %}
 
 {% block fail %}
@@ -39,11 +39,10 @@
                      {% for consulta in selectNpagos %}
                         <tr>
                             <td>{{consulta.nome_paciente}}</td>
-                            <td>{{consulta.data}}</td>
+                            <td>{{consulta.data_formatada}}</td>
                             <td> R${{consulta.valor_consulta}}</td>
                             <td>{{"Pago" if consulta.pagamento ==  "P" else "Não pago"}}</td>
                             <td><a href="/consultas/detalhes/{{consulta.id}}">Ver</a></td>
-
                         </tr>
                         {% endfor %}
                     </tbody>

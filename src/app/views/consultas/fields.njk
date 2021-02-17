@@ -35,12 +35,12 @@
 <div class="item">
     <div>Valor da consulta</div>
     <div>
-        <input type="number" name="valor_consulta"  step="0.01" placeholder="Valor total da consulta"
+        <input id ="input" type="number" name="valor_consulta"  step="0.01" placeholder="Valor total da consulta"
             onkeyup="mult(this.value)" value="{{consulta.valor_consulta}}"required>
     </div>
 </div>
 
-<div class="item" style="display:none">
+<div class="item " style="display:none">
     <div>Valor da instituição</div>
     <div>
         <input type="number" name="valor_instituicao" step=0.01 placeholder="Parte da instituição" id="prof" value="{{consulta.valor_instituicao}}" required>

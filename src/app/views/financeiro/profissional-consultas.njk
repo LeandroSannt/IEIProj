@@ -40,7 +40,7 @@
                      {% for consulta in consultas %}
                         <tr>
                             <td>{{consulta.nome_paciente}}</td>
-                            <td>{{consulta.data}}</td>
+                            <td>{{consulta.data_formatada}}</td>
                             <td> R${{consulta.valor_consulta}}</td>
                             <td>{{"Pago" if consulta.pagamento ==  "P" else "Não pago"}}</td>
                         </tr>

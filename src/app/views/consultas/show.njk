@@ -2,9 +2,8 @@
 
     <link rel="stylesheet" href="/styles/partials/form.css">
     
-
 {% block title %}
-    <title>Agendar consultas</title>
+    <title>Paciente : {{consulta.nome_paciente}}</title>
 {% endblock title %}
 
 {% block fail %}
@@ -60,7 +59,7 @@
 
             <div class="item">
                 <div>Valor da consulta</div>
-                <div>R$: {{consulta.valor_consulta}}</div>
+                <div>{{consulta.valor_consulta}}</div>
             </div>
 
             <!-- <div class="item">
@@ -87,7 +86,6 @@
     </section>
              </div>
      </aside>
-     
     </div> 
 
     {% block scripts %}

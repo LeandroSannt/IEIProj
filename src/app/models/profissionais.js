@@ -34,7 +34,6 @@ module.exports= {
         )VALUES($1,$2,$3)
         RETURNING id
     `
-
         var values= [
             data.nome,
             data.especialidade,
@@ -46,7 +45,6 @@ module.exports= {
     find(id){
        return db.query(`
         SELECT  * FROM profissionais WHERE id = $1`,[id])
-        
     },
 
     update(data){
@@ -66,9 +64,6 @@ module.exports= {
 
     delete(id){
       return  db.query(`DELETE  FROM profissionais WHERE id = $1`,[id])
-
     },
-
-
 }    
     

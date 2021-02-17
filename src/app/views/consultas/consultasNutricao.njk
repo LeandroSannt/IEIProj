@@ -1,9 +1,8 @@
 {% extends "layout.njk" %}
 
 {% block title %}
-    <title>Consultas</title>
+    <title>Consultas de nutrição</title>
 {% endblock title %}
-
 
 {% block content %} 
      <aside>
@@ -33,11 +32,6 @@
                     {% endfor %}
                 </tbody>
             </table>
-                <div class="pagination"
-            data-page={{pagination.page}}
-            data-total={{pagination.total}}
-            data-filter={{filter}}
-        ></div>
          </div>
      </aside>
         <script src="/scripts/pagination.js"></script>  

@@ -15,7 +15,6 @@ module.exports={
         let results = await Profissionais.all(req.body)
         const profissionais = results.rows
         return res.render("profissionais/index",{profissionais}) 
-
         }
     },
 
@@ -44,7 +43,6 @@ async show(req,res){
         if(!profissional) return res.render("parts/not-found")
     
         return res.render(`profissionais/show`,{profissional})
-
     },
     
 async edit(req,res){
@@ -53,7 +51,6 @@ async edit(req,res){
         if(!profissional) return res.render("parts/not-found")
 
         return res.render("profissionais/edit",{profissional})
-
     },
     
 async put(req,res){
@@ -65,7 +62,6 @@ async put(req,res){
     }
     await Profissionais.update(req.body)
     return res.redirect("/profissionais")
-
     },
 
 async delete(req,res){

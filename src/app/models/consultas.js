@@ -6,23 +6,27 @@ module.exports= {
 
      all(){
        return db.query(`
-        SELECT consultas.* ,profissionais.especialidade AS prof_esp,
+        SELECT consultas.*,
+        TO_CHAR(data, 'DD/MM/YYYY') AS data_formatada ,
+        profissionais.especialidade AS prof_esp,
         profissionais.nome AS prof_nome
         FROM consultas
         LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
-        ORDER BY hora ASC`
+        ORDER BY created_at desc`
         )
     },
 
     filter(filter){
         return db.query(`
-        SELECT consultas.* ,profissionais.especialidade AS prof_esp,
+        SELECT consultas.*,
+        TO_CHAR(data, 'DD/MM/YYYY') AS data_formatada ,
+        profissionais.especialidade AS prof_esp,
         profissionais.nome AS prof_nome
         FROM consultas
         LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
         WHERE consultas.nome_paciente ILIKE '%${filter}%'
         OR profissionais.nome ILIKE '%${filter}%'
-        ORDER BY hora ASC`
+        ORDER BY created_at desc`
          )
      },
 
@@ -93,7 +97,7 @@ module.exports= {
             `
         var values =[
             data.nome_paciente,
-            data.data,
+            data.data =  new Intl.DateTimeFormat('pt-BR').format(data.data),
             data.hora,
             data.valor_consulta,
             data.valor_instituicao,
@@ -163,6 +167,5 @@ module.exports= {
         WHERE profissionais.especialidade = 'Nutricao'
        `)    
     }
-
 }    
     

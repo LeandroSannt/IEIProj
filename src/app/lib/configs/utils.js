@@ -17,6 +17,8 @@ module.exports = {
         const year = date.getUTCFullYear()
         const month = `0${date.getUTCMonth() + 1}`.slice(-2)
         const day = `0${date.getUTCDate()}`.slice(-2)
+        
+     const teste =  ( (date.getDate() ) + "/"  + ((date.getMonth() + 1)) +  "/" +date.getFullYear() ) 
 
         return {
             day,
@@ -24,7 +26,8 @@ module.exports = {
             year,
             iso:`${year}-${month}-${day}`,
             DayMonth:`${day}/${month}`,
-            format:`${day}/${month}/${year}`
+            format:`${day}/${month}/${year}`,
+            teste
         }
     },
     formatCpfCnpj(value){
@@ -45,6 +48,4 @@ module.exports = {
         }
         return value
     },
-
-
 }

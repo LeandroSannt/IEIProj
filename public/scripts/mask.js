@@ -1,4 +1,3 @@
-console.log("oi")
 const Mask ={
     apply(input, func){
         setTimeout(function(){

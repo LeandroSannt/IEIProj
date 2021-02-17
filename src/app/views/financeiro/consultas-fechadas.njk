@@ -1,7 +1,7 @@
 {% extends "layout.njk" %}     
 
 {% block title %}
-    <title>Profissionais</title>
+    <title>Consultas fechadas</title>
 {% endblock title %}
 
 {% block fail %}
@@ -18,7 +18,6 @@
         <section class ="filter-professional gender" >
             <span class ="title-profissional">    
                 <H1>Consultas fechadas</H1>
-
             </span>
         </section>
      </section>
@@ -40,7 +39,7 @@
                      {% for consulta in selectPagos %}
                         <tr>
                             <td>{{consulta.nome_paciente}}</td>
-                            <td>{{consulta.data}}</td>
+                            <td>{{consulta.data_formatada}}</td>
                             <td> R${{consulta.valor_consulta}}</td>
                             <td>{{"Pago" if consulta.pagamento ==  "P" else "Não pago"}}</td>
                             <td><a href="/consultas/detalhes/{{consulta.id}}">Ver</a></td>

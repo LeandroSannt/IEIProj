@@ -1,5 +1,6 @@
-var {date, age} =require("../lib/configs/utils")
+var {date, age,teste} =require("../lib/configs/utils")
 var Consultas =require("../models/consultas")
+const Intl =require("intl")
 
 module.exports={
     
@@ -11,6 +12,9 @@ module.exports={
         let results = await Consultas.filter(filter)
         const consultas = results.rows
 
+        consultas.data =  new Intl.DateTimeFormat('pt-BR').format(consultas.data)
+        
+
         results = await Consultas.totalConsultas()
         const totalConsultas = results.rows
 
@@ -19,7 +23,7 @@ module.exports={
     
         results = await Consultas.nutricao(req.body)
         const totalNutricao = results.rows
-        consultas.data = date(consultas.data).format
+
             return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
 
     }else{
@@ -35,7 +39,10 @@ module.exports={
     
         results = await Consultas.nutricao(req.body)
         const totalNutricao = results.rows
-        consultas.data = age(consultas.data).age
+
+        
+        consultas.data = date(consultas.data).format
+
             return res.render("consultas/index",{consultas,totalConsultas,totalPiscicologia,totalNutricao}) 
 
         }
@@ -125,7 +132,8 @@ async show(req,res){
     find = results.rows[0]
     
     if(!consulta) return res.render(`parts/not-found`)
-        consulta.data = date(consulta.data).format
+    consulta.data =  new Intl.DateTimeFormat('pt-BR').format(consulta.data)
+   consulta.valor_consulta = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'BRL' }).format(consulta.valor_consulta);
         return res.render(`consultas/show`,{find,consulta})
 
     },

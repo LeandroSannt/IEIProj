@@ -30,7 +30,7 @@
                         <td>{{consulta.nome_paciente}}</td>
                         <td >{{consulta.prof_nome}}</td>
                         <td >{{consulta.prof_esp}}</td>
-                        <td >{{consulta.data}}</td>
+                        <td class="date" >{{consulta.data_formatada}}</td>
                         <td >{{consulta.hora}}</td>
                         <td><a href="consultas/detalhes/{{consulta.id}}">Ver</a></td>
                     </tr>
@@ -39,9 +39,5 @@
             </table>      
          </div>
      </aside>
-
-
-
-        <script src="/scripts/pagination.js"></script>  
 {% endblock content %}
 

@@ -1,12 +1,13 @@
 var {age, date} =require("../lib/configs/utils")
 var db = require("../lib/configs/db")
 
-
 module.exports= {
 
     all(){
         return db.query(`
-        SELECT profissionais. * ,SUM(consultas.valor_profissional) AS valor_profissional,
+        SELECT profissionais. * ,
+        SUM (consultas.valor_consulta) AS valor_total,      
+        SUM(consultas.valor_profissional) AS valor_profissional,
         SUM(consultas.valor_instituicao) AS valor_instituicao,
         COUNT(consultas) as total_consultas
         FROM  profissionais
@@ -30,7 +31,6 @@ module.exports= {
          )
      },
 
-
      SumProfissional(){
        return db.query(`
        SELECT profissionais. * ,SUM(consultas.valor_profissional) AS valor_profissional
@@ -41,20 +41,20 @@ module.exports= {
         )
     },
 
-
    find(id){
     return db.query(`
      SELECT  * FROM profissionais WHERE id = $1`,[id])
- },
+    },
 
 findConsultas(id){
     return db.query(`
-    SELECT consultas. *,profissionais.*
+    SELECT consultas. *,profissionais.*,
+    TO_CHAR(data, 'DD/MM/YYYY') AS data_formatada 
     FROM consultas
     LEFT JOIN profissionais ON (consultas.profissional_id = profissionais.id)
     WHERE profissional_id = $1
     `,[id])
-},
+    },
 
    totalValores(){
        return db.query(`
@@ -69,29 +69,36 @@ findConsultas(id){
 
    selectPagos(){
        return db.query(`
-       SELECT consultas.*,profissionais.nome AS profissional_nome,
+       SELECT consultas.*,
+       TO_CHAR(data, 'DD/MM/YYYY') AS data_formatada ,
+       profissionais.nome AS profissional_nome,
        profissionais.especialidade AS profissional_especialidade
        FROM consultas
        LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
-       WHERE consultas.pagamento = 'P'`)  
-   },
+       WHERE consultas.pagamento = 'P'
+       ORDER BY created_at desc
+       `)  
+    },
 
    totalPagos(){
        return db.query(`
        SELECT COUNT(consultas.pagamento) AS total_pagos
        FROM consultas
        WHERE consultas.pagamento = 'P'
-`)
+        `)
    },
 
    selectNpagos(){
     return db.query(`
-    SELECT consultas.*,profissionais.nome AS profissional_nome,
+    SELECT consultas.*,
+    TO_CHAR(data, 'DD/MM/YYYY') AS data_formatada ,
+    profissionais.nome AS profissional_nome,
     profissionais.especialidade AS profissional_especialidade
     FROM consultas
     LEFT JOIN profissionais ON(consultas.profissional_id = profissionais.id)
-    WHERE consultas.pagamento = 'NP'`)  
-
+    WHERE consultas.pagamento = 'NP'
+    ORDER BY created_at desc
+    `)  
    },
 
    totalNpagos(){
@@ -99,7 +106,7 @@ findConsultas(id){
     SELECT COUNT(consultas.pagamento) AS total_n_pagos
     FROM consultas
     WHERE consultas.pagamento = 'NP'
-`)
-}
+    `)
+    }
 }    
         
