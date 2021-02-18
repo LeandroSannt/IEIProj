@@ -34,11 +34,11 @@ module.exports = {
                 reset_token_expires: now
             })
 
-            await mailer .sendMail({
+            await mailer.sendMail({
                 to:user.email,
-                from:"no-reply@leandro.com.br",
+                from:"recsenha0000@hotmail.com",
                 subject:"Recuperação de senha",
-                html: `<h2>Perdeu a chave </h2>
+                html: `<h2>Redefina sua senha </h2>
                 <p>clique no link a baixo para recuperar a senha </p>
                 <p>
                     <a href ="http://localhost:5000/user/password-reset?token=${token}" target ="_blank">
