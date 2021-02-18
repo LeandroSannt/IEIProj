@@ -54,9 +54,17 @@
 
             <div class="item">
                 <div>Pagamento</div>
-                <div>{{"Pago" if consulta.pagamento ==  "P" else "Não pago"}}</div>
+                <div>
+                {% if consulta.pagamento == "NP"   %} 
+                    Não Pago
+                {%elif consulta.pagamento ==  "C"%}
+                    Cancelado
+                {%else%}
+                    Pago
+                {% endif %}
+                </div>
             </div>
-
+            
             <div class="item">
                 <div>Valor da consulta</div>
                 <div>{{consulta.valor_consulta}}</div>
@@ -86,6 +94,7 @@
     </section>
              </div>
      </aside>
+     
     </div> 
 
     {% block scripts %}

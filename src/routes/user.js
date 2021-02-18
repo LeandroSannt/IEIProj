@@ -16,10 +16,10 @@ const { onlyUser} = require("../app/middlewares/session")
 
   //reset poassword
 
-  //routes.get("/forgot-password",SessionController.forgotForm)
-  //routes.get("/password-reset",SessionController.resetForm)
-  //routes.post("/forgot-password",SessionController.forgot)
-  //routes.post("/password-reset",SessionController.reset)
+  routes.get("/forgot-password",SessionController.forgotForm)
+  routes.get("/password-reset",SessionController.resetForm)
+  routes.post("/forgot-password",SessionValidator.forgot,SessionController.forgot)
+  routes.post("/password-reset",SessionValidator.reset,SessionController.reset)
 
 //user registro
 
@@ -28,6 +28,6 @@ routes.post('/registro',UserValidator.post, UserController.post)
 
 routes.get('/index',onlyUser,UserValidator.show, UserController.show)
 routes.put('/',UserValidator.update, UserController.update)
-//routes.delete('/', UserController.delete)
+routes.delete('/', UserController.delete)
 
 module.exports = routes

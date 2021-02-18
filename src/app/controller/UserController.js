@@ -5,7 +5,6 @@ module.exports = {
     registerForm(req,res){
         return res.render("user/registro")
     },
-
   async show(req,res){
     const {user} = req
 
@@ -13,14 +12,12 @@ module.exports = {
 
     return res.render("user/index", {user})  
     },
-
   async  post(req,res){
       const userId = await User.create(req.body)
       req.session.userId = userId
 
       return res.redirect("/user/index")
     },
-
   async update(req,res){
     try{
       const {user} = req
@@ -44,4 +41,21 @@ module.exports = {
         })
       }
     },
+    async delete(req,res){
+      try{
+        await User.delete(req.body.id)
+        req.session.destroy()
+
+        return res.render("session/login",{
+          success:"Conta deletada com sucesso"
+        })
+
+      }catch(err){
+        console.error(err)
+        return res.render("user/index",{
+          error:"Error ao tentar deletar sua conta"
+
+        })
+      }
+    }
 }

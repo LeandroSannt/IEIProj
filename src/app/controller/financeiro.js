@@ -55,7 +55,6 @@ async financeiroConsultas(req,res){
 
     },
 
-
 async consultasAbertas(req,res){
         results = await Financeiro.selectNpagos()
         const selectNpagos = results.rows

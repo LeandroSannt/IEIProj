@@ -27,9 +27,8 @@
                          <div class="details">
                         {%include  "user/fields.njk"%}
                          <button class="enviar" type="submit">Atualizar</button>
-                        {%if session.userId == 24 %}
                         <button class =delete type="submit" form ="form-delete">Deletar</button> 
-                        {%endif%}
+       
                         </div>
                         <input type="hidden" name="id"value={{user.id}}> 
                 </form>

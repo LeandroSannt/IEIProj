@@ -67,6 +67,11 @@
             {% if consulta.pagamento == "NP"   %} checked {% endif %} id="pagamentoNP" required>
             <label for="pagamentoNP">Não pago</label>
         </span>
+        <span>
+            <input type="radio" name="pagamento" value="C" 
+            {% if consulta.pagamento == "C"   %} checked {% endif %} id="pagamentoC" required>
+            <label for="pagamentoC">Cancelada</label>
+        </span>
     </div>
 </div>
 

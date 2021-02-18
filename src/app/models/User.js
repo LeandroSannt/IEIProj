@@ -1,7 +1,6 @@
 var {date} =require("../lib/configs/utils")
 var db = require("../lib/configs/db")
 const {hash} = require ('bcryptjs')
-const { update } = require("../controller/UserController")
 
 module.exports= {
 
@@ -66,6 +65,9 @@ module.exports= {
             })
             await db.query(query)
             return 
+        },
+    async delete(id){
+        await db.query(` DELETE FROM users WHERE id = $1`, [id])
         }
     }    
     
