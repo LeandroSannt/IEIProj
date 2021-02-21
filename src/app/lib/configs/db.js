@@ -5,5 +5,5 @@ module.exports = new Pool({
     password:"3047",
     host:"localhost",
     port:5432,
-    database:"IEIProj"
+    database:"ieiproj"
 })

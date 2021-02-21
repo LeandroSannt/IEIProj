@@ -16,7 +16,7 @@
 <div class="container-global">
     <div class="pareativos">
         {% block header %} 
-            {%if session.userId == 24 %}
+            {%if session.userId == 1 %}
                 {%include 'parts/header-admin.njk'%}
             {%else%}
                 {%include 'parts/header-usuario.njk'%}

@@ -30,7 +30,7 @@
                     <tr>
                         <th>Nome do profissional</th>
                         <th>Especialidade</th>
-                           {%if session.userId == 24 %}
+                           {%if session.userId == 1 %}
                             <th></th>
                             {%endif%}
                     </tr>
@@ -41,7 +41,7 @@
                         <tr>
                             <td>{{profissional.nome}}</td>
                             <td>{{profissional.especialidade}}</td>
-                            {%if session.userId == 24 %}
+                            {%if session.userId == 1 %}
                             <td><a href="profissionais/detalhes/{{profissional.id}}">Ver</a></td>
                             {%endif%}
                         </tr>

@@ -11,7 +11,7 @@ function isLoggedRedirect(req,res,next){
 }
 
 function redirectNotPermission(req,res,next){
-    if(req.session.userId != 24){
+    if(req.session.userId != 1){
         return res.render("parts/not-found")
     }else{
         next()
